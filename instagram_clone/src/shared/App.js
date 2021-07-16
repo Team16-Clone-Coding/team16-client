@@ -6,20 +6,26 @@ import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
 import Main from "../pages/Main";
 import MyPage from "../pages/MyPage";
-
-
+import ContainerGrid  from "../elements/ContainerGrid";
 
 function App() {
   return (
     <React.Fragment>
-      <ConnectedRouter history={history}>
-        <Route path='/' exact component={Main}/>
-        <Route path='/mypage' exact component={MyPage}/>
-        <Route path='/login' exact component={LogIn}></Route>
-        <Route path='/signup' exact component={SignUp}></Route>
-      </ConnectedRouter>
+      
+        <ConnectedRouter history={history}>
+          <ContainerGrid>
+          <Route path='/' exact component={Main}/>
+          <Route path='/mypage' exact component={MyPage}/>
+          <Route path='/login' exact component={LogIn}/>
+          <Route path='/signup' exact component={SignUp}/>
+          </ContainerGrid>
+        </ConnectedRouter>
+        
     </React.Fragment>
+    
   );
 }
+
+
 
 export default App;
