@@ -1,10 +1,11 @@
 import React from "react";
 import { history } from "../redux/configStore";
+import Post from "../components/Post";
 
 const Main = (props) => {
   return(
     <React.Fragment>
-      메인페이지
+      <Post></Post>
     </React.Fragment>
   );
 }

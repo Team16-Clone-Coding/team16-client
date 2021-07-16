@@ -6,19 +6,20 @@ import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
 import Main from "../pages/Main";
 import MyPage from "../pages/MyPage";
-import ContainerGrid  from "../elements/ContainerGrid";
+import styled from "styled-components";
+import Header from "../components/Header";
 
 function App() {
   return (
     <React.Fragment>
-      
         <ConnectedRouter history={history}>
-          <ContainerGrid>
-          <Route path='/' exact component={Main}/>
-          <Route path='/mypage' exact component={MyPage}/>
-          <Route path='/login' exact component={LogIn}/>
-          <Route path='/signup' exact component={SignUp}/>
-          </ContainerGrid>
+            <ContainerBox>
+            <Header></Header>
+            <Route path='/' exact component={Main}/>
+            <Route path='/mypage' exact component={MyPage}/>
+            <Route path='/login' exact component={LogIn}/>
+            <Route path='/signup' exact component={SignUp}/>
+            </ContainerBox>
         </ConnectedRouter>
         
     </React.Fragment>
@@ -27,5 +28,12 @@ function App() {
 }
 
 
+const ContainerBox = styled.div`
+  width: 100%;
+  max-width: 550px;
+  background: #fff;
+  margin: 0 auto;
+  height: 100vh;
+`;
 
 export default App;

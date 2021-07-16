@@ -19,22 +19,32 @@ const Grid = (props) => {
   const {
     is_flex,
     width,
+    height,
     margin,
     padding,
     bg,
     children,
     center,
     _onClick,
+    max,
+    alignitems,
+    display,
+    topline,
   } = props;
 
   //   스타일드 컴포넌트에 보낼 내용만 따로 묶어주면 return에 들어갈 코드가 좀 더 깔끔해집니다!
   const styles = {
     is_flex: is_flex,
     width: width,
+    height: height,
     margin: margin,
     padding: padding,
     bg: bg,
     center: center,
+    max: max,
+    alignitems: alignitems,
+    display: display,
+    topline: topline,
   };
 
   return (
@@ -51,6 +61,7 @@ Grid.defaultProps = {
   chidren: null,
   is_flex: false,
   width: "100%",
+  height: "100%",
   padding: false,
   margin: false,
   bg: false,
@@ -60,16 +71,24 @@ Grid.defaultProps = {
 
 const GridBox = styled.div`
   width: ${(props) => props.width};
-  height: 100%;
+  height: ${(props) => props.height};
+  max-width: ${(props) => props.max};
+  margin: ${(props) => props.margin};
+  padding: ${(props) => props.padding};
+  display: ${(props) => props.display};
   box-sizing: border-box;
   ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   ${(props) => (props.bg ? `background-color: ${props.bg};` : "")}
+  ${(props) => (props.alignitems ? `margin: ${props.alignitems};` : "")}
   ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between; `
       : ""}
   ${(props) => (props.center ? `text-align: center;` : "")}
+  ${(props) => (props.topline ? `border-top: 1px solid rgba(var(--ce3,239,239,239),1);` : "")}
+  
+  
 `;
 
 export default Grid;
