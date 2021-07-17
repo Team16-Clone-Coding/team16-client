@@ -69,8 +69,8 @@ const LogIn = (props) => {
             
             <AppDownload>
               <AppMessage>앱을 다운로드하세요.</AppMessage>
-              <AppImg href="#"><img src={imgAppStore} alt="" /></AppImg>
-              <AppImg href="#"><img src={imgGoogleStore} alt="" /></AppImg>
+              <AppImg href="https://apps.apple.com/app/instagram/id389801252?vt=lo" target="_blank"><img src={imgAppStore} alt="App Store에서 이용 가능" /></AppImg>
+              <AppImg href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3DD98A0D7A-4F19-4BF8-8A84-D436DF7FA009%26utm_content%3Dlo%26utm_medium%3Dbadge" target="_blank"><img src={imgGoogleStore} alt="Google Play에서 이용 가능" /></AppImg>
             </AppDownload>
           </Grid>
         </Colright>
