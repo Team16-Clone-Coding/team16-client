@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Input, Grid, Button } from "../elements";
 import { history } from "../redux/configStore";
-import imgLogo from "../instagram_logo.png";
-import imgLogin from "../instagram_login.png";
-import imgAppStore from "../download_app.png";
-import imgGoogleStore from "../download_google.png";
+import imgLogo from "../images/instagram_logo.png";
+import imgLogin from "../images/instagram_login.png";
+import imgAppStore from "../images/download_app.png";
+import imgGoogleStore from "../images/download_google.png";
 
 
 const LogIn = (props) => {
