@@ -3,20 +3,7 @@ import styled from "styled-components";
 
 import { Text, Grid } from "./index";
 
-// 인풋 컴포넌트
-/**
- * 
- * @param {*} props 
- * - label 인풋 박스 위에 넣어줄 텍스트 
- * - placeholder 인풋 박스에 미리 넣어줄 텍스트
- * - _onChange 인풋에 들어갈 값(text, file 등)이 변경되면 실행할 함수
- * - type 인풋 박스의 타입 (file, text 등)
- * - multiline 여러 줄(엔터 포함)을 보여줄 지 말지 여부 (input과 textarea로 분기할거예요.)
- * - value 인풋 박스의 값
- * - is_submit 엔터키 이벤트를 줄지 말지 여부 boolean
- * - onSubmit 엔터키 이벤트에서 실행할 함수(onKeyPress 이벤트를 사용해요!)
- * @returns 
- */
+
 const Input = (props) => {
   const {
     label,
@@ -27,6 +14,11 @@ const Input = (props) => {
     value,
     is_submit,
     onSubmit,
+    width,
+    margin,
+    padding,
+    bg,
+    borderradius,
   } = props;
 
   if (multiLine) {
@@ -43,12 +35,21 @@ const Input = (props) => {
     );
   }
 
+  const styles = {
+    margin: margin,
+    width: width,
+    padding: padding,
+    bg: bg,
+    borderradius: borderradius,
+  };
+
   return (
     <React.Fragment>
       <Grid>
         {label && <Text margin="0px">{label}</Text>}
         {is_submit ? (
           <ElInput
+            {...styles}
             type={type}
             placeholder={placeholder}
             onChange={_onChange}
@@ -74,22 +75,38 @@ Input.defaultProps = {
   type: "text",
   value: "",
   is_submit: false,
+  width: false,
+  height: false,
+  margin: false,
+  padding: false,
+  bg: false,
+  borderradius: false,
   onSubmit: () => {},
   _onChange: () => {},
 };
 
 const ElTextarea = styled.textarea`
-  border: 1px solid #212121;
+  border: 1px solid #dbdbdb;
   width: 100%;
   padding: 12px 4px;
   box-sizing: border-box;
 `;
 
 const ElInput = styled.input`
-  border: 1px solid #212121;
-  width: 100%;
-  padding: 12px 4px;
   box-sizing: border-box;
+  border: 1px solid #dbdbdb;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
+  bg: ${(props) => props.bg};
+  borderradius: ${(props) => props.raduis}; 
+  ${(props) => (props.width ? `width: ${props.width};` : "width: 100%;")}
+  ${(props) => (props.height ? `height: ${props.height};` : "height: 36px;")}
+  ${(props) => (props.padding ? `padding: ${props.padding};` : "padding: 9px 8px;")}
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")}
+  ${(props) => (props.borderradius ? `border-radius: ${props.borderradius};` : "border-radius: 3px;")}
 `;
 
 export default Input;

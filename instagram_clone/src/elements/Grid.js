@@ -1,49 +1,44 @@
 import React from "react";
 import styled from "styled-components";
 
-// 그리드 컴포넌트
-/**
- *
- * @param {*} props
- * - _onClick : 버튼 클릭 시 실행할 함수
- * - is_flex : 플로팅 버튼인지 아닌 지 여부 boolean
- * - children : 열림 태그와 닫힘 태그 사이에 들어가는 자식 노드 / ex) <>여기에 들어가는 게 자식 노드!</>
- * - margin : margin 값 (px 등 단위를 포함한 string)
- * - width : width 값 (px 등 단위를 포함한 string)
- * - padding : padding 값 (px 등 단위를 포함한 string)
- * - bg : 배경 색상 코드 (# 포함한 string)
- * - center : 텍스트 정렬을 가운데로 할지 말지 boolean
- * @returns
- */
+
 const Grid = (props) => {
   const {
     is_flex,
+    display,
+    alignitems,
+    justifycontent,
+    flexdirection,
     width,
     height,
     margin,
     padding,
     bg,
+    border,
     children,
     center,
+    is_flex_column,
     _onClick,
     max,
-    alignitems,
-    display,
     topline,
   } = props;
 
   //   스타일드 컴포넌트에 보낼 내용만 따로 묶어주면 return에 들어갈 코드가 좀 더 깔끔해집니다!
   const styles = {
     is_flex: is_flex,
+    display: display,
+    alignitems: alignitems,
+    justifycontent: justifycontent,
+    flexdirection: flexdirection,
     width: width,
     height: height,
     margin: margin,
     padding: padding,
     bg: bg,
+    border: border,
     center: center,
+    is_flex_column: is_flex_column,
     max: max,
-    alignitems: alignitems,
-    display: display,
     topline: topline,
   };
 
@@ -60,35 +55,43 @@ const Grid = (props) => {
 Grid.defaultProps = {
   chidren: null,
   is_flex: false,
+  flexdirection: false,
+  alignitems: false,
+  justifycontent: false,
   width: "100%",
-  height: "100%",
   padding: false,
   margin: false,
   bg: false,
+  border: false,
   center: false,
+  is_flex_column: false,
   _onClick: () => {},
 };
 
 const GridBox = styled.div`
+  display: ${(props) => props.display};
+  flex-direction: ${(props) => props.flexdirection};
+  align-items: ${(props) => props.alignitems};
+  justify-content: ${(props) => props.justifycontent};
+  max-width: ${(props) => props.max};
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  max-width: ${(props) => props.max};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
-  display: ${(props) => props.display};
+  border: ${(props) => props.border};
   box-sizing: border-box;
-  ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+
   ${(props) => (props.bg ? `background-color: ${props.bg};` : "")}
-  ${(props) => (props.alignitems ? `margin: ${props.alignitems};` : "")}
   ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between; `
       : ""}
   ${(props) => (props.center ? `text-align: center;` : "")}
-  ${(props) => (props.topline ? `border-top: 1px solid rgba(var(--ce3,239,239,239),1);` : "")}
-  
-  
+  ${(props) =>
+    props.is_flex_column
+      ? `display: flex; align-items: center; justify-content: center; flex-direction: column`
+      : ""}
+  ${(props) => (props.topline ? `border-top: 1px solid rgba(var(--ce3,239,239,239),1);` : "")}  
 `;
 
 export default Grid;

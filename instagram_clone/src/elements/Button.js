@@ -1,20 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-// 버튼 컴포넌트
-/**
- *
- * @param {*} props
- * - _onClick : 버튼 클릭 시 실행할 함수
- * - _is_float : 플로팅 버튼인지 아닌 지 여부 boolean
- * - children : 열림 태그와 닫힘 태그 사이에 들어가는 자식 노드 / ex) <>여기에 들어가는 게 자식 노드!</>
- * - margin : margin 값 (px 등 단위를 포함한 string)
- * - width : width 값 (px 등 단위를 포함한 string)
- * - padding : padding 값 (px 등 단위를 포함한 string)
- * @returns
- */
+
 const Button = (props) => {
-  const { _onClick, is_float, children, margin, width, padding } = props;
+  const { _onClick, is_float, children, margin, width, padding, bg } = props;
 
   //   is_float가 true면 플로팅 버튼을 반환합니다.
   // return 이후의 구문은 읽지 않으니, else는 굳이 쓰지 않아도 괜찮아요!
@@ -31,6 +20,7 @@ const Button = (props) => {
     margin: margin,
     width: width,
     padding: padding,
+    bg: bg,
   };
 
   return (
@@ -50,16 +40,19 @@ Button.defaultProps = {
   margin: false,
   width: "100%",
   padding: "12px 0px",
+  bg: false,
 };
 
 const ElButton = styled.button`
   width: ${(props) => props.width};
-  background-color: #212121;
+  // background-color: #212121;
   color: #ffffff;
   padding: ${(props) => props.padding};
   box-sizing: border-box;
   border: none;
+  bg: ${(props) => props.bg};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")}
 `;
 
 const FloatButton = styled.button`
