@@ -7,14 +7,12 @@ import SignUp from "../pages/SignUp";
 import Main from "../pages/Main";
 import MyPage from "../pages/MyPage";
 import styled from "styled-components";
-import Header from "../components/Header";
 
 function App() {
   return (
     <React.Fragment>
         <ConnectedRouter history={history}>
             <ContainerBox>
-            <Header></Header>
             <Route path='/' exact component={Main}/>
             <Route path='/mypage' exact component={MyPage}/>
             <Route path='/login' exact component={LogIn}/>
