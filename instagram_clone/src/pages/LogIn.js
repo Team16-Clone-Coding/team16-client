@@ -22,7 +22,6 @@ const LogIn = (props) => {
               {/* = 아이디 */}
               <Grid margin="5px 0">
                 <Input
-                  bg="#00000"
                   placeholder="전화번호, 사용자 이름 또는 이메일"
                   _onChange={() => {
                     console.log("아이디 입력했어!");
@@ -33,7 +32,6 @@ const LogIn = (props) => {
               {/* = 패스워드 */}
               <Grid margin="5px 0">
                 <Input
-                  bg="red"
                   placeholder="비밀번호"
                   _onChange={() => {
                     console.log("패스워드 입력했어!");

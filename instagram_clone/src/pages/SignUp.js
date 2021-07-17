@@ -37,7 +37,6 @@ const LogIn = (props) => {
             {/* = 휴대폰 또는 이메일 */}
             <Grid margin="5px 0">
               <Input
-                bg="#eee"
                 placeholder="휴대폰 번호 또는 이메일 주소"
                 _onChange={() => {
                   console.log("휴대폰 번호 또는 이메일 주소 입력했어!");
@@ -48,7 +47,6 @@ const LogIn = (props) => {
             {/* = 휴대폰 또는 이메일 */}
             <Grid margin="5px 0">
               <Input
-                bg="#eee"
                 placeholder="성명"
                 _onChange={() => {
                   console.log("성명 입력했어!");
@@ -59,7 +57,6 @@ const LogIn = (props) => {
             {/* = 사용자 이름 */}
             <Grid margin="5px 0">
               <Input
-                bg="red"
                 placeholder="사용자 이름"
                 _onChange={() => {
                   console.log("사용자 이름 입력했어!");
@@ -70,7 +67,6 @@ const LogIn = (props) => {
             {/* = 비밀번호 */}
             <Grid margin="5px 0">
               <Input
-                bg="red"
                 placeholder="비밀번호"
                 _onChange={() => {
                   console.log("비밀번호 입력했어!");
