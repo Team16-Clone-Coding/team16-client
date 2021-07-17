@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 const Button = (props) => {
-  const { _onClick, is_float, children, margin, width, height, padding, bg, borderradius } = props;
+  const { _onClick, is_float, children, margin, width, height, padding, bg, borderradius, fontweight } = props;
 
   //   is_float가 true면 플로팅 버튼을 반환합니다.
   // return 이후의 구문은 읽지 않으니, else는 굳이 쓰지 않아도 괜찮아요!
@@ -23,6 +23,7 @@ const Button = (props) => {
     padding: padding,
     bg: bg,
     borderradius: borderradius,
+    fontweight:fontweight,
   };
 
   return (
@@ -45,20 +46,21 @@ Button.defaultProps = {
   padding: "12px 0px",
   bg: false,
   borderradius: false,
+  fontweight: false,
 };
 
 const ElButton = styled.button`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   color: #ffffff;
+  font-weight: ${(props) => props.fontweight};
   cursor: pointer;
   padding: ${(props) => props.padding};
   box-sizing: border-box;
   border: none;
-  bg: ${(props) => props.bg};
+  background-color: ${(props) => props.bg};
   border-radius: ${(props) => props.borderradius};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")}
 `;
 
 const FloatButton = styled.button`
