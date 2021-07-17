@@ -9,7 +9,7 @@ const PostHeader = (props) => {
           <Image size="32"></Image>
         </Grid>
         <Grid is_flex>
-          <Text>닉네임</Text>
+          <Text bold>{props.name}</Text>
         </Grid>
       </Grid>
     </React.Fragment>

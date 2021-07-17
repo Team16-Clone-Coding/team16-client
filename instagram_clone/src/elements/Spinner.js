@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-// 빙글빙글 돌아가는 스피너
-// svg 이미지를 가지고 만들어요
+
 const Spinner = (props) => {
   const { type, size, is_dim } = props;
 
