@@ -99,13 +99,12 @@ const ElInput = styled.input`
   height: ${(props) => props.height};
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
-  bg: ${(props) => props.bg};
+  background-color: ${(props) => props.bg};
   borderradius: ${(props) => props.raduis}; 
   ${(props) => (props.width ? `width: ${props.width};` : "width: 100%;")}
   ${(props) => (props.height ? `height: ${props.height};` : "height: 36px;")}
   ${(props) => (props.padding ? `padding: ${props.padding};` : "padding: 9px 8px;")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")}
   ${(props) => (props.borderradius ? `border-radius: ${props.borderradius};` : "border-radius: 3px;")}
 `;
 
