@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import PostHeader from "./PostHeader";
 import PostButton from "./PostButton";
-import PostContents from "./PostContents";
 import PostComments from "./PostComments";
-import { Grid, Image } from "../elements";
+import { Grid, Image, Text } from "../elements";
 
 const Post = (props) => {
+  
   return(
     <React.Fragment>
       <Grid height="50px;"></Grid>
@@ -14,7 +14,11 @@ const Post = (props) => {
         <PostHeader></PostHeader>
         <Image shape="rectangle"></Image>
         <PostButton></PostButton>
-        <PostContents></PostContents>
+        <Grid>
+        <Text>{props.name}</Text>
+        <Text>{props.time}</Text>
+      </Grid>
+      
         <PostComments></PostComments>
       </PostCard>
     </React.Fragment>
