@@ -18,7 +18,7 @@ const Header = (props) => {
 
 
 const Logo = styled.div`
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/lighthouse-8c323.appspot.com/o/instalogo.png?alt=media&token=a770b095-72c0-4657-83a6-fecf6b10f845");
+  background-image: url("https://cdn.discordapp.com/attachments/865553698898051122/865751365622824980/instagram_logo.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
