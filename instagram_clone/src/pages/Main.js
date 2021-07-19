@@ -4,7 +4,7 @@ import { history } from "../redux/configureStore";
 import {Grid} from "../elements";
 import Post from "../components/Post";
 import Header from "../components/Header";
-import post, { actionsCreators as postActions } from "../redux/modules/post";
+import { actionsCreators as postActions } from "../redux/modules/post";
 import InfinityScroll from "../shared/InfinityScroll";
 const Main = (props) => {
 
@@ -12,6 +12,7 @@ const Main = (props) => {
 
   const post_list = useSelector((state) => state.post.list);
   const paging = useSelector((state) => state.post.paging);
+  const is_loading = useSelector((state) => state.post.is_loading);
 
   React.useEffect(() => {
     if (post_list.length < 2) {
@@ -20,7 +21,7 @@ const Main = (props) => {
 
   },[])
   
-  console.log(post_list);
+  console.log(post_list, paging);
 
   return(
     <React.Fragment>
@@ -31,7 +32,7 @@ const Main = (props) => {
             dispatch(postActions.getPostDB(paging.next));
           }}
           is_next = {paging.next ? true : false}
-          // loading = {is_loading}
+          loading = {is_loading}
         >
           {post_list.map((_, idx) =>{
             return(<Post key={idx} {..._}></Post>)

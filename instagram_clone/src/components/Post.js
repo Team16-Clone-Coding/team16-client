@@ -5,6 +5,7 @@ import PostButton from "./PostButton";
 import PostComments from "./PostComments";
 import PostContents from "./PostContents";
 import { Grid, Image, Text } from "../elements";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const Post = (props) => {
