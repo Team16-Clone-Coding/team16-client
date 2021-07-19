@@ -30,9 +30,9 @@ const getPostDB = (start = null, size = 3) => {
 
     let _paging = getState().post.paging;
 
-    if (_paging.start && !_paging.next) {
-      return;
-    }
+    // if (_paging.start && !_paging.next) {
+    //   return;
+    // }
     
 
     dispatch(loading(true));
@@ -44,20 +44,20 @@ const getPostDB = (start = null, size = 3) => {
 
       console.log(post_list);
 
-      let post_lists = post_list.slice(start.findIndex(), size + 1);
+      // let post_lists = post_list.slice(start.findIndex(), size + 1);
       
 
-      dispatch(setPost(post_lists));
+      dispatch(setPost(post_list));
       
-      if (start){
-        post_lists = post_list.slice(start.findIndex(), size + 1);
-      } 
+      // if (start){
+      //   post_lists = post_list.slice(start.findIndex(), size + 1);
+      // } 
 
-      let paging = {
-        start: post_list[0],
-        next: post_list.length === size + 1 ? post_list[post_list.length - 1] : null,
-        size: size,
-      };
+      // let paging = {
+      //   start: post_list[0],
+      //   next: post_list.length === size + 1 ? post_list[post_list.length - 1] : null,
+      //   size: size,
+      // };
     }).catch((err) => {
       console.log(err);
     });
