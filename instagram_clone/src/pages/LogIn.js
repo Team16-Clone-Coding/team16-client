@@ -1,14 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import { Input, Grid, Button } from "../elements";
-import { history } from "../redux/configStore";
+import { history } from "../redux/configureStore";
 import imgLogo from "../images/instagram_logo.png";
 import imgLogin from "../images/instagram_login.png";
 import imgAppStore from "../images/download_app.png";
 import imgGoogleStore from "../images/download_google.png";
 
+import { setCookie } from "../shared/Cookie";
+
 
 const LogIn = (props) => {
+  const [id, setId] = React.useState('');
+  const [pwd, setPwd] = React.useState('');
+
+  const changeId = (e) => {
+    setId(e.target.value);
+  }
+
+  const changePwd = (e) => {
+   setPwd(e.target.value);
+  }
+
+  const login = () => {
+    setCookie("user_id", id, 3);
+    setCookie("user_pwd", pwd, 3);
+  }
+
   return (
     <React.Fragment>
       <Col>
@@ -22,20 +40,20 @@ const LogIn = (props) => {
               {/* = 아이디 */}
               <Grid margin="5px 0">
                 <Input
+                  type="text"
+                  value={id}
                   placeholder="전화번호, 사용자 이름 또는 이메일"
-                  _onChange={() => {
-                    console.log("아이디 입력했어!");
-                  }}
+                  onChange={changeId}
                 />
               </Grid>
 
               {/* = 패스워드 */}
               <Grid margin="5px 0">
                 <Input
+                  type="password"
                   placeholder="비밀번호"
-                  _onChange={() => {
-                    console.log("패스워드 입력했어!");
-                  }}
+                  value={pwd}
+                  onChange={changePwd}
                 />
               </Grid>
 
@@ -49,9 +67,7 @@ const LogIn = (props) => {
                   height="30px"
                   padding="0"
                   text="로그인하기"
-                  _onClick={() => {
-                    console.log("로그인 했어!");
-                  }}
+                  __click={() => {login();}}
                 >로그인</Button>
                 <OrBox>
                   <OrBorder></OrBorder>
