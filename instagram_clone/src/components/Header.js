@@ -1,5 +1,5 @@
 import React from "react";
-import { history } from "../redux/configStore";
+import { history } from "../redux/configureStore";
 import { Grid, Image, Button } from "../elements"
 import styled from "styled-components";
 

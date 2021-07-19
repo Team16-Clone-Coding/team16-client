@@ -1,5 +1,5 @@
 import React from "react";
-import { history } from "../redux/configStore";
+import { history } from "../redux/configureStore";
 import Header from "../components/Header";
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Input, Grid, Button } from "../elements";
-import { history } from "../redux/configStore";
+import { history } from "../redux/configureStore";
 import imgLogo from "../images/instagram_logo.png";
 import imgLogin from "../images/instagram_login.png";
 import imgAppStore from "../images/download_app.png";
