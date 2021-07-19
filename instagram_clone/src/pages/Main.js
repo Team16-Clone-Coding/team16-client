@@ -17,7 +17,10 @@ const Main = (props) => {
     if (post_list.length < 2) {
       dispatch(postActions.getPostDB());
     }
+
   },[])
+  
+  console.log(post_list);
 
   return(
     <React.Fragment>

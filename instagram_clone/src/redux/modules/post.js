@@ -7,7 +7,7 @@ const SET_POST = "SET_POST";
 const LOADING = "LOADING";
 
 
-const setPost = createAction(SET_POST, (post_list) => ({ post_list }));
+const setPost = createAction(SET_POST, (post_list, paging) => ({ post_list, paging }));
 const loading = createAction(LOADING, (is_loading) => ({ is_loading }));
 
 
@@ -40,16 +40,17 @@ const getPostDB = (start = null, size = 3) => {
 
       let post_list = res.data;
 
-      // if (start){
-      //   let post_list = post_list.slice(start);
-      // } 
+      if (start){
+        post_list = post_list.slice(start);
+      } 
 
-      // let paging = {
-      //   start: post_list[0],
-      //   next: post_list.length === size + 1 ? po
-      //   size: size,
-      // }
-      dispatch(setPost(post_list));
+      let paging = {
+        start: post_list[0],
+        next: post_list.length === size + 1 ? post_list[post_list.length - 1] : null,
+        size: size,
+      };
+
+      dispatch(setPost(post_list, paging));
 
     }).catch((err) => {
       console.log(err);
