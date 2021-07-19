@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { history } from "../redux/configureStore";
 import {Grid} from "../elements";
+
 import Post from "../components/Post";
 import Header from "../components/Header";
 import { actionsCreators as postActions } from "../redux/modules/post";

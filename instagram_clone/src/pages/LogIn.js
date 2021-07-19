@@ -2,15 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { Input, Grid, Button } from "../elements";
 import { history } from "../redux/configureStore";
+
 import imgLogo from "../images/instagram_logo.png";
 import imgLogin from "../images/instagram_login.png";
 import imgAppStore from "../images/download_app.png";
 import imgGoogleStore from "../images/download_google.png";
 
-import { setCookie } from "../shared/Cookie";
+import { getCookie, setCookie, deleteCookie } from "../shared/Cookie";
+import {actionCreators as userActions} from "../redux/modules/user";
+import { useDispatch } from "react-redux";
 
 
 const LogIn = (props) => {
+  const dispatch = useDispatch();
   const [id, setId] = React.useState('');
   const [pwd, setPwd] = React.useState('');
 
@@ -19,12 +23,11 @@ const LogIn = (props) => {
   }
 
   const changePwd = (e) => {
-   setPwd(e.target.value);
+    setPwd(e.target.value);
   }
 
   const login = () => {
-    setCookie("user_id", id, 3);
-    setCookie("user_pwd", pwd, 3);
+    dispatch(userActions.login({user_name: "perl"}));
   }
 
   return (
@@ -67,7 +70,13 @@ const LogIn = (props) => {
                   height="30px"
                   padding="0"
                   text="로그인하기"
-                  __click={() => {login();}}
+                  // __click={() => {login();}
+                  _onClick={() => {
+                    console.log('로그인 버튼 클릭!');
+                    // login();
+                    dispatch(userActions.loginFB())
+                  }
+                }
                 >로그인</Button>
                 <OrBox>
                   <OrBorder></OrBorder>
