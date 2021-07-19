@@ -18,15 +18,15 @@ const getUser = createAction(GET_USER, (user) => ({ user }));
 // InitialState
 const initialState = {
   user: null,
-  is_login: true,
+  is_login: false,
 };
 
 
 // Middleware actions
 const loginFB = (userEmail : "이메일", userPassword : "비밀번호") => {
   return function (dispatch, getState, { history }) {
-    console.log("미들웨어 실행");
-    history.push("/");
+    // console.log("미들웨어 실행");
+    // history.push("/");
     instance.get("/user/login").then((res) => {
       console.log(res);
     }).catch((err) => {

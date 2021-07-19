@@ -1,28 +1,16 @@
 import React from "react";
 import { history } from "../redux/configureStore";
 import {setCookie, getCookie, deleteCookie} from "../shared/Cookie";
+import { actionCreators as userActions } from "../redux/modules/user";
+import { useSelector, useDispatch } from "react-redux";
 import { Grid, Image, Button } from "../elements"
 import styled from "styled-components";
-
 import imghome from "../images/ico_home.png";
-import { useSelector } from "react-redux";
 
 
 const Header = (props) => {
-  const [is_login, setIsLogin] = React.useState(false);
-
-  React.useEffect(() => {
-    // 쿠키를 가져와요!
-    let cookie = getCookie('쿠키 이름 넣기!');
-    // 확인해봅시다!
-    console.log(cookie);
-    // 쿠키가 있으면?
-    if(cookie){
-      setIsLogin(true);
-    }else{
-      setIsLogin(false);
-    }
-  });
+  const dispatch = useDispatch();
+  const is_login = useSelector((state) => state.user.is_login);
 
   console.log(is_login);
 
@@ -36,7 +24,7 @@ const Header = (props) => {
                   ><img src={imghome} alt="목록 이동"/></Button>
             <Button width="20%">게시글 작성</Button>
             <Button width="20%">마이페이지</Button>
-            <Button bg="red" _onClick={() => {deleteCookie('login');}}>로그아웃</Button>
+            <Button text="로그아웃" _onClick={() => {dispatch(userActions.logOut({}));}}></Button>
           </Grid>
         </FixedHeader>
       </React.Fragment>
