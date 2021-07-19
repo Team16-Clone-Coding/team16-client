@@ -42,7 +42,7 @@ Button.defaultProps = {
   is_float: false,
   margin: false,
   width: "100%",
-  height: false,
+  height: "",
   padding: "12px 0px",
   bg: false,
   borderradius: false,
