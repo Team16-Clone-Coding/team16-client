@@ -46,11 +46,11 @@ const getPostDB = () => {
   }
 };
 
-const addPostDB = (postImage, contents) => {
+const addPostDB = (postImage, postContent) => {
   return function (dispatch, getState, { history }) {
-    console.log(postImage,contents);
+    console.log(postImage,postContent);
 
-    instance.post("/posts", {postImage, contents}).then((res) => {
+    instance.post("/posts", {postImage, postContent}).then((res) => {
 
       console.log(res);
 
@@ -64,7 +64,7 @@ const addPostDB = (postImage, contents) => {
 
 const addCommentDB = (commentContent, postId) => {
   return function (dispatch, getState, { history }) {
-    instance.post(`/post/${postId}/comment`, {commentContent}).then((res) => {
+    instance.post(`/posts/${postId}/comment`, {commentContent}).then((res) => {
 
     console.log(res);
 
