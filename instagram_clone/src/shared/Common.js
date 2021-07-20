@@ -5,7 +5,7 @@ export const emailCheck = (email) => {
 };
 
 export const passwordCheck = (password) => {
-  let _reg2 = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+  let _reg2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
   return _reg2.test(password);
 }

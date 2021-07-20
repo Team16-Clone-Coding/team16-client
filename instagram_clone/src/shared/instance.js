@@ -23,6 +23,6 @@ export function getCookie(cName) {
   
 const USER_TOKEN = getCookie("USER_TOKEN");
 
-instance.defaults.headers.common["Authorization"] = "Bearer " + USER_TOKEN;
+instance.defaults.headers.common["Authorization"] = USER_TOKEN;
 
 export default instance;
