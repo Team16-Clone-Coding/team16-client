@@ -7,7 +7,7 @@ const instance = axios.create({
 
 export function getCookie(cName) {
   cName = cName + '=';
-
+  
   var cookieData = document.cookie;
   var start = cookieData.indexOf(cName);
   var cValue = '';

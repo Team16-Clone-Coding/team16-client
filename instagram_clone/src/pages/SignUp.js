@@ -31,6 +31,8 @@ const SignUp = (props) => {
   }
 
   const signup = () => {
+    console.log(userEmail, userName, userPassword);
+
     if(userEmail === "" || userName === "" || userPassword === "") {
       window.alert("아이디, 비밀번호, 닉네임을 모두 입력해주세요.");
       return;
@@ -46,7 +48,7 @@ const SignUp = (props) => {
       return;
     }
 
-    dispatch(userActions.signupFB(userEmail, userPassword, userName));
+    dispatch(userActions.signupFB(userEmail, userName, userPassword));
   }
 
   return (
@@ -83,9 +85,11 @@ const SignUp = (props) => {
             {/* = 비밀번호 */}
             <Grid margin="5px 0">
               <Input
+                type="password"
                 placeholder="비밀번호"
                 _onChange={changePwd}
               />
+              <p>최소 8 자, 최소 하나의 문자 및 하나의 숫자</p>
             </Grid>
 
             {/* = 가입 */}

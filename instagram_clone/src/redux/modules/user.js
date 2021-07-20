@@ -29,45 +29,27 @@ const initialState = {
 
 // Middleware actions
 const loginFB = (userEmail, userPassword) => {
+  console.log(111);
   return function (dispatch, getState, {history}) {
+    console.log(222);
     instance.post("/user/login", 
       {userEmail: userEmail, userPassword: userPassword}
     ).then(function (response) {
+      console.log(response);
 
-      if (response.data.result === "success") {
-        dispatch(
-          setUser({
-            userEmail: userEmail,
-            userPassword: userPassword,
-            userName: response.data.userName,
-          })
-        );
+      const USER_TOKEN = response.data.jwtToken;
 
-        const USER_TOKEN = response.data.token;
+      let date = new Date(Date.now() + 86400e3);
+      date = date.toUTCString();
 
-        dispatch(
-          getToken({
-            user_token: USER_TOKEN,
-          })
-        );
+      dispatch(setUser({is_login: true,}));
 
-        localStorage.setItem('userEmail', response.data.userEmail);
-        // localStorage.setItem('nickname', response.data.nickname);
+      document.cookie = "USER_TOKEN" + "=" + USER_TOKEN + "; " + "expires=" + date;
 
-        let date = new Date(Date.now() + 86400e3);
-        date = date.toUTCString();
+      axios.defaults.headers.common["Authorization"] = USER_TOKEN;
 
-        document.cookie = "USER_TOKEN" + "=" + USER_TOKEN + "; " + "expires=" + date;
-
-
-        axios.defaults.headers.common["Authorization"] = "Bearer " + USER_TOKEN;
-
-        // window.alert("공부하러 가볼까요??")
-        history.push('/');
-      } 
-      else{
-        window.alert("로그인 정보가 존재하지 않습니다.");
-      }
+      // // window.alert("공부하러 가볼까요??")
+      history.push('/');
     }).catch((error) => {
       console.log(error);
     });
@@ -81,6 +63,8 @@ const signupFB = (userEmail, userName, userPassword) => {
     ).then(function (response) {
 
       console.log(response.data.result);
+      console.log(userEmail, userName, userPassword);
+
       // if(response.data.result === "nicknameExist" ) {
       //   window.alert("이미 존재하는 닉네임입니다.")
       //   return;
@@ -101,6 +85,7 @@ const signupFB = (userEmail, userName, userPassword) => {
     })
     .catch(function (error) {
       console.log(error);
+      console.log(userEmail, userName, userPassword);
     });
   }
 }
