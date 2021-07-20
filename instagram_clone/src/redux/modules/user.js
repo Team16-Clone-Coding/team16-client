@@ -29,9 +29,7 @@ const initialState = {
 
 // Middleware actions
 const loginFB = (userEmail, userPassword) => {
-  console.log(111);
   return function (dispatch, getState, {history}) {
-    console.log(222);
     instance.post("/user/login", 
       {userEmail: userEmail, userPassword: userPassword}
     ).then(function (response) {
@@ -48,7 +46,6 @@ const loginFB = (userEmail, userPassword) => {
 
       axios.defaults.headers.common["Authorization"] = USER_TOKEN;
 
-      // // window.alert("공부하러 가볼까요??")
       history.push('/');
     }).catch((error) => {
       console.log(error);
@@ -116,7 +113,7 @@ const logOutFB = () => {
     document.cookie = "USER_TOKEN" + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
     localStorage.removeItem("userEmail");
     localStorage.removeItem("userName");
-    history.push("/");
+    history.push("/login");
   }
 }
 
