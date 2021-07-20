@@ -1,14 +1,54 @@
 import React from "react";
 import styled from "styled-components";
 import { Input, Grid, Button } from "../elements";
-import { history } from "../redux/configureStore";
+
 import imgLogo from "../images/instagram_logo.png";
-import imgLogin from "../images/instagram_login.png";
 import imgAppStore from "../images/download_app.png";
 import imgGoogleStore from "../images/download_google.png";
 
+import { emailCheck, passwordCheck } from "../shared/common";
+import {actionCreators as userActions} from "../redux/modules/user";
+import { useDispatch } from "react-redux";
 
-const LogIn = (props) => {
+
+const SignUp = (props) => {
+  const dispatch = useDispatch();
+
+  const [userEmail, setEmail] = React.useState("");
+  const [userPassword, setPwd] = React.useState("");
+  const [userName, setUserName] = React.useState("");
+
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const changeName = (e) => {
+    setUserName(e.target.value);
+  }
+
+  const changePwd = (e) => {
+    setPwd(e.target.value);
+  }
+
+  const signup = () => {
+    if(userEmail === "" || userName === "" || userPassword === "") {
+      window.alert("아이디, 비밀번호, 닉네임을 모두 입력해주세요.");
+      return;
+    }
+
+    if(!emailCheck(userEmail)) {
+      window.alert("이메일 형식이 맞지 않습니다.");
+      return;
+    }
+
+    if(!passwordCheck(userPassword)) {
+      window.alert("비밀번호 형식이 맞지 않습니다.");
+      return;
+    }
+
+    dispatch(userActions.signupFB(userEmail, userPassword, userName));
+  }
+
   return (
     <React.Fragment>
       <Col>
@@ -16,17 +56,7 @@ const LogIn = (props) => {
           <Grid center padding="30px 40px 40px" border="1px solid #dbdbdb" bg="#ffffff">
             <Logo src={imgLogo} alt=""/>
             <Desc>친구들의 사진과 동영상을 보려면 가입하세요.</Desc>
-            <Button
-              fontweight="bold"
-              bg="#0095F2"
-              borderradius="5px"
-              height="30px"
-              padding="0"
-              text="Facebook으로 로그인"
-              _onClick={() => {
-                console.log("로그인 했어!");
-              }}
-            >Facebook으로 로그인</Button>
+            <SocialLogin target="_blank" href="https://www.facebook.com/login.php?skip_api_login=1&api_key=124024574287414&kid_directed_site=0&app_id=124024574287414&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fclient_id%3D124024574287414%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignup%252F%26state%3D%257B%2522fbLoginKey%2522%253A%2522czvbxrm54xutxl3fteywtp51livx5usifvac1i8o6q9158zxij%2522%252C%2522fbLoginReturnURL%2522%253A%2522%252Ffxcal%252Fdisclosure%252F%2522%257D%26scope%3Demail%26response_type%3Dcode%252Cgranted_scopes%26locale%3Dko_KR%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D75959a59-da08-4399-8c31-10e6e1aff0e3%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.instagram.com%2Faccounts%2Fsignup%2F%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%2522fbLoginKey%2522%253A%2522czvbxrm54xutxl3fteywtp51livx5usifvac1i8o6q9158zxij%2522%252C%2522fbLoginReturnURL%2522%253A%2522%252Ffxcal%252Fdisclosure%252F%2522%257D%23_%3D_&display=page&locale=ko_KR&pl_dbl=0">Facebook으로 로그인</SocialLogin>
 
             <OrBox>
               <OrBorder></OrBorder>
@@ -38,19 +68,7 @@ const LogIn = (props) => {
             <Grid margin="5px 0">
               <Input
                 placeholder="휴대폰 번호 또는 이메일 주소"
-                _onChange={() => {
-                  console.log("휴대폰 번호 또는 이메일 주소 입력했어!");
-                }}
-              />
-            </Grid>
-
-            {/* = 휴대폰 또는 이메일 */}
-            <Grid margin="5px 0">
-              <Input
-                placeholder="성명"
-                _onChange={() => {
-                  console.log("성명 입력했어!");
-                }}
+                _onChange={changeEmail}
               />
             </Grid>
 
@@ -58,9 +76,7 @@ const LogIn = (props) => {
             <Grid margin="5px 0">
               <Input
                 placeholder="사용자 이름"
-                _onChange={() => {
-                  console.log("사용자 이름 입력했어!");
-                }}
+                _onChange={changeName}
               />
             </Grid>
 
@@ -68,13 +84,11 @@ const LogIn = (props) => {
             <Grid margin="5px 0">
               <Input
                 placeholder="비밀번호"
-                _onChange={() => {
-                  console.log("비밀번호 입력했어!");
-                }}
+                _onChange={changePwd}
               />
             </Grid>
 
-            {/* = 로그인 */}
+            {/* = 가입 */}
             <Grid margin="10px 0 0 0">
               <Button
                 fontweight="bold"
@@ -82,11 +96,8 @@ const LogIn = (props) => {
                 borderradius="5px"
                 height="30px"
                 padding="0"
-                text="로그인하기"
-                _onClick={() => {
-                  console.log("로그인 했어!");
-                }}
-              >로그인</Button>
+                _onClick={signup}
+              >가입</Button>
             </Grid>
           </Grid>
         
@@ -140,18 +151,15 @@ const Link = styled.a`
 const SocialLogin = styled.a`
   display: block;
   width: 100%;
-  color: #385185;
+  height: 30px;
+  line-height: 30px;
+  color: #ffffff;
   font-size: 14px;
   font-weight: bold;
+  background-color: #0095F2;
+  border-radius: 5px;
   text-decoration: none;
   margin-bottom: 15px;
-`;
-const FindPwd = styled.a`
-  display: block;
-  width: 100%;
-  color: #00376b;
-  font-size: 12px;
-  text-decoration: none;
 `;
 const OrBox = styled.div`
   box-sizing: border-box;
@@ -201,4 +209,4 @@ const AppImg = styled.a`
   }
 `;
 
-export default LogIn;
+export default SignUp;
