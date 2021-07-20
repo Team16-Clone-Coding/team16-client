@@ -48,8 +48,16 @@
       "contents": "테스트용 글내용7 테스트용 글내용1 테스트용 글내용1",
       "time": "2021-07-31",
       "comment": "댓글7입니다."
+    },
+    {
+      "postImage": "https://i.pinimg.com/474x/a8/e7/60/a8e760bcdf6af796ebf9745ae28b7eae.jpg",
+      "contents": "",
+      "id": 8
+    },
+    {
+      "postImage": "https://i.pinimg.com/474x/a8/e7/60/a8e760bcdf6af796ebf9745ae28b7eae.jpg",
+      "contents": "sdfasdf",
+      "id": 9
     }
-
-   
   ]
 }

@@ -4,10 +4,13 @@ import instance from "../../shared/instance";
 import { indexOf, slice } from "lodash";
 
 const SET_POST = "SET_POST";
+const ADD_POST = "ADD_POST";
 const LOADING = "LOADING";
 
 
+
 const setPost = createAction(SET_POST, (post_list, paging) => ({ post_list, paging }));
+const addPost = createAction(ADD_POST, (post) => ({post}));
 const loading = createAction(LOADING, (is_loading) => ({ is_loading }));
 
 
@@ -30,40 +33,32 @@ const getPostDB = (start = null, size = 3) => {
 
     let _paging = getState().post.paging;
 
-    // if (_paging.start && !_paging.next) {
-    //   return;
-    // }
-    
-
-    dispatch(loading(true));
+    console.log(_paging);
 
     instance.get("/posts").then((res) => {
-      console.log(res);
-
-      let post_list = res.data;
-
-      console.log(post_list);
-
-      // let post_lists = post_list.slice(start.findIndex(), size + 1);
       
+      let postList = res.data; 
+     
+      console.log(postList);
 
-      dispatch(setPost(post_list));
-      
-      // if (start){
-      //   post_lists = post_list.slice(start.findIndex(), size + 1);
-      // } 
+      dispatch(setPost(postList));
 
-      // let paging = {
-      //   start: post_list[0],
-      //   next: post_list.length === size + 1 ? post_list[post_list.length - 1] : null,
-      //   size: size,
-      // };
     }).catch((err) => {
       console.log(err);
     });
-
   }
 };
+
+const addPostDB = (postImage, contents) => {
+  return function (dispatch, getState, { history }) {
+    
+    instance.post("/posts", {postImage, contents}).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+}
 
 
 export default handleActions(
@@ -80,13 +75,20 @@ export default handleActions(
     [LOADING]: (state, action) => produce(state, (draft) => {
       draft.is_loading = action.payload.is_loading;
     }),
+
+    [ADD_POST]: (state, action) => produce(state, (draft) => {
+      produce(state, (draft) => {
+        draft.list.unshift(action.payload.post);
+      })
+    }),
     
   }, initialState
 );
 
-const actionsCreators = {
+const actionCreators = {
   setPost,
   getPostDB,
+  addPostDB,
 }
 
-export { actionsCreators };
+export { actionCreators };
