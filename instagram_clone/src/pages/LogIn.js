@@ -1,33 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import { Input, Grid, Button } from "../elements";
-import { history } from "../redux/configureStore";
 
 import imgLogo from "../images/instagram_logo.png";
 import imgLogin from "../images/instagram_login.png";
 import imgAppStore from "../images/download_app.png";
 import imgGoogleStore from "../images/download_google.png";
 
-import { getCookie, setCookie, deleteCookie } from "../shared/Cookie";
 import {actionCreators as userActions} from "../redux/modules/user";
 import { useDispatch } from "react-redux";
 
 
 const LogIn = (props) => {
   const dispatch = useDispatch();
-  const [id, setId] = React.useState('');
-  const [pwd, setPwd] = React.useState('');
 
-  const changeId = (e) => {
-    setId(e.target.value);
+  const [userEmail, setEmail] = React.useState("");
+  const [userPassword, setPwd] = React.useState("");
+
+  const login = () => {
+    dispatch(userActions.loginFB(userEmail, userPassword));
+  };
+
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
   }
 
   const changePwd = (e) => {
     setPwd(e.target.value);
-  }
-
-  const login = () => {
-    dispatch(userActions.login({user_name: "perl"}));
   }
 
   return (
@@ -44,9 +43,8 @@ const LogIn = (props) => {
               <Grid margin="5px 0">
                 <Input
                   type="text"
-                  value={id}
                   placeholder="전화번호, 사용자 이름 또는 이메일"
-                  onChange={changeId}
+                  _onChange={changeEmail}
                 />
               </Grid>
 
@@ -55,8 +53,7 @@ const LogIn = (props) => {
                 <Input
                   type="password"
                   placeholder="비밀번호"
-                  value={pwd}
-                  onChange={changePwd}
+                  _onChange={changePwd}
                 />
               </Grid>
 
@@ -69,14 +66,7 @@ const LogIn = (props) => {
                   borderradius="5px"
                   height="30px"
                   padding="0"
-                  text="로그인하기"
-                  // __click={() => {login();}
-                  _onClick={() => {
-                    console.log('로그인 버튼 클릭!');
-                    // login();
-                    dispatch(userActions.loginFB())
-                  }
-                }
+                  _onClick={login}
                 >로그인</Button>
                 <OrBox>
                   <OrBorder></OrBorder>
