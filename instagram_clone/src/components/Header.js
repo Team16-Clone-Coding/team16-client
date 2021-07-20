@@ -11,6 +11,7 @@ import imghome from "../images/ico_home.png";
 const Header = (props) => {
   const dispatch = useDispatch();
   const is_login = useSelector((state) => state.user.is_login);
+  const logOutBtn = () => { dispatch(userActions.logOutFB()); };
 
   console.log(is_login);
 
@@ -24,7 +25,7 @@ const Header = (props) => {
                   ><img src={imghome} alt="목록 이동"/></Button>
             <Button width="20%">게시글 작성</Button>
             <Button width="20%">마이페이지</Button>
-            <Button text="로그아웃" _onClick={() => {dispatch(userActions.logOut({}));}}></Button>
+            <Button text="로그아웃" _onClick={logOutBtn}></Button>
           </Grid>
         </FixedHeader>
       </React.Fragment>
@@ -55,17 +56,4 @@ const FixedHeader = styled.div`
   left: 0;
   z-index: 10;
 `;
-const Link = styled.a`
-  color: #0095f6;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-
-  img {
-    width: 22px;
-  }
-`;
-
 export default Header;
