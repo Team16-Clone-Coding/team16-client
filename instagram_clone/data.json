@@ -48,8 +48,249 @@
       "contents": "테스트용 글내용7 테스트용 글내용1 테스트용 글내용1",
       "time": "2021-07-31",
       "comment": "댓글7입니다."
+    },
+    {
+      "postImage": "https://i.pinimg.com/474x/a8/e7/60/a8e760bcdf6af796ebf9745ae28b7eae.jpg",
+      "contents": "",
+      "id": 8
+    },
+    {
+      "postImage": "https://i.pinimg.com/474x/a8/e7/60/a8e760bcdf6af796ebf9745ae28b7eae.jpg",
+      "contents": "sdfasdf",
+      "id": 9
+    },
+    {
+      "postImage": "https://i.pinimg.com/474x/a8/e7/60/a8e760bcdf6af796ebf9745ae28b7eae.jpg",
+      "contents": "sdf",
+      "id": 10
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2Fs.png?alt=media&token=4c6509f7-9f03-4513-bd20-b5d650e3a1bf",
+      "id": 11
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2Fs.png?alt=media&token=4c6509f7-9f03-4513-bd20-b5d650e3a1bf",
+      "id": 12
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2Fs.png?alt=media&token=4b0f4ea2-1f4c-4fe1-a8a8-90a843b4276a",
+      "id": 13
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2Fs.png?alt=media&token=4b0f4ea2-1f4c-4fe1-a8a8-90a843b4276a",
+      "id": 14
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F33.PNG?alt=media&token=95cf000a-4d9a-4bd7-b503-a68209eff00c",
+      "id": 15
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F33.PNG?alt=media&token=95cf000a-4d9a-4bd7-b503-a68209eff00c",
+      "id": 16
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2Fboj-og-1200.png?alt=media&token=ac33eed5-3c1d-4c18-9e0b-58fdb51d34c7",
+      "id": 17
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2Fboj-og-1200.png?alt=media&token=ac33eed5-3c1d-4c18-9e0b-58fdb51d34c7",
+      "id": 18
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F23.PNG?alt=media&token=b0f84117-3571-4943-8596-2f6520c5db8d",
+      "id": 19
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F23.PNG?alt=media&token=b0f84117-3571-4943-8596-2f6520c5db8d",
+      "id": 20
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F23.PNG?alt=media&token=78949c5b-931e-4556-a344-36528a1a540d",
+      "id": 21
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F23.PNG?alt=media&token=78949c5b-931e-4556-a344-36528a1a540d",
+      "id": 22
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=6bc522f4-e87d-4107-aff4-975c120582bf",
+      "id": 23
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=6bc522f4-e87d-4107-aff4-975c120582bf",
+      "id": 24
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=683f7521-464a-4f26-96f4-0f0c3f242fd0",
+      "id": 25
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=683f7521-464a-4f26-96f4-0f0c3f242fd0",
+      "id": 26
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2Frlaehdgur.jpg?alt=media&token=fca0ab1d-6da2-451e-a7ae-5bd926008bda",
+      "id": 27
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2Frlaehdgur.jpg?alt=media&token=fca0ab1d-6da2-451e-a7ae-5bd926008bda",
+      "id": 28
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=30b3f935-c660-4dbd-a558-6a4468fec919",
+      "id": 29
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=30b3f935-c660-4dbd-a558-6a4468fec919",
+      "id": 30
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=39d0ff24-e6b3-464c-8002-fccc5851773b",
+      "id": 31
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=39d0ff24-e6b3-464c-8002-fccc5851773b",
+      "id": 32
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=92eae29b-dd51-4d74-8a17-96cb9dd8cd90",
+      "id": 33
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=92eae29b-dd51-4d74-8a17-96cb9dd8cd90",
+      "id": 34
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=92bc9c45-8f94-4333-91af-c810b131316e",
+      "id": 35
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=92bc9c45-8f94-4333-91af-c810b131316e",
+      "id": 36
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=f9a19a86-bd0b-43aa-8a0c-3b67caff2488",
+      "id": 37
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=f9a19a86-bd0b-43aa-8a0c-3b67caff2488",
+      "id": 38
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=bf30e93c-79d0-43af-aa7b-f7de48885fc6",
+      "id": 39
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png?alt=media&token=b2b6b8dc-7d3f-4ed0-b9ce-d78785e926fa",
+      "id": 40
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png?alt=media&token=3416f7cf-3048-4ef0-b3cb-39ba6e8df796",
+      "id": 41
+    },
+    {
+      "imgaeUrl": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=f2a0fbd3-6aa1-48ff-be5a-f5a41af11964",
+      "id": 42
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=f2a0fbd3-6aa1-48ff-be5a-f5a41af11964",
+      "contents": "dddd",
+      "id": 43
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F1524914945277.jpg?alt=media&token=844d2baf-c227-405f-9bfa-225d69bec15f",
+      "postContent": "aaaassss",
+      "id": 44
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F1524914945277.jpg?alt=media&token=844d2baf-c227-405f-9bfa-225d69bec15f",
+      "contents": "aaaassss",
+      "id": 45
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F1524914945277.jpg?alt=media&token=46d0a9b1-cb41-4208-b04f-4b8b0f048dc3",
+      "postContent": "aaaassss",
+      "id": 46
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F1524914945277.jpg?alt=media&token=46d0a9b1-cb41-4208-b04f-4b8b0f048dc3",
+      "contents": "aaaassss",
+      "id": 47
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F1524914945277.jpg?alt=media&token=a433d25c-4ac7-46ca-872e-ff092760559e",
+      "postContent": "aaaassss",
+      "id": 48
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F1524914945277.jpg?alt=media&token=a433d25c-4ac7-46ca-872e-ff092760559e",
+      "contents": "aaaassss",
+      "id": 49
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=ee95befa-5a67-400b-a3fb-4a6d4b342e86",
+      "postContent": "asdf",
+      "id": 50
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=7d364ae4-8b33-47e4-bf7a-7aacdbcb123b",
+      "postContent": "asdf",
+      "id": 51
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=4690ede6-28b3-4859-8b7e-fb75c34e85ca",
+      "postContent": "asdf",
+      "id": 52
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=f6128e72-43bd-4f82-91f7-abf482ddd29e",
+      "postContent": "asdf",
+      "id": 53
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=43506b2e-0cae-4532-8a9d-7e0c327c9bb6",
+      "postContent": "asdf",
+      "id": 54
+    },
+    {
+      "postImage": {},
+      "contents": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=e6246731-3fe7-45ee-a98e-9d5464bb55b4",
+      "id": 55
+    },
+    {
+      "postImage": {},
+      "contents": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-1.PNG?alt=media&token=c693cea4-8e03-42a8-9d31-0d1bafaf61c8",
+      "id": 56
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F550px-Pascal_triangle.svg.png?alt=media&token=f93315ad-1d11-4287-adc7-7eca70baa619",
+      "contents": "asdfasdf",
+      "id": 57
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F550px-Pascal_triangle.svg.png?alt=media&token=27dfc204-5476-4e19-bae3-c4a7e82cee9a",
+      "contents": "asdfasdf",
+      "id": 58
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F4.PNG?alt=media&token=69c07c07-7342-477c-a1d0-1f946ee1c23e",
+      "contents": "asdfaf",
+      "id": 59
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F24-2.PNG?alt=media&token=d6fffdca-fcf2-4c11-bd15-bb8a8a4bb3d0",
+      "contents": "asdfasdfasdfasdf",
+      "id": 60
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F23.PNG?alt=media&token=9194e82a-df8a-4330-9c1d-3e8a1303c52e",
+      "contents": "가나낟",
+      "id": 61
+    },
+    {
+      "postImage": "https://firebasestorage.googleapis.com/v0/b/insta-clone-8ebfd.appspot.com/o/images%2F6.PNG?alt=media&token=fc892a11-bfd8-413d-a600-a9585b4c856b",
+      "contents": "ㄴ롤호오",
+      "id": 62
     }
-
-   
   ]
 }

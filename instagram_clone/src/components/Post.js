@@ -10,19 +10,20 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Post = (props) => {
 
+
   return(
     <React.Fragment>
       <Grid height="50px"></Grid>
         <PostCard>
-          <PostHeader name={props.name}></PostHeader>
+          <PostHeader name={props.user.userName}></PostHeader>
 
-          <Image shape="rectangle"></Image>
+          <Image shape="rectangle" src={props.postImage}></Image>
 
-          <PostButton></PostButton>
+          <PostButton likes={props.likes}></PostButton>
 
-          <PostContents contents={props.contents} comment={props.comment}></PostContents>
+          <PostContents writer={props.user.userName} contents={props.postContent} comment={props.commentList} time={props.createdAt}></PostContents>
 
-          <PostComments></PostComments>
+          <PostComments postIdx={props.postId}></PostComments>
         </PostCard>
     </React.Fragment>
   );
