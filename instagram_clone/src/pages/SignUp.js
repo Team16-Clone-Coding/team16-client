@@ -6,7 +6,7 @@ import imgLogo from "../images/instagram_logo.png";
 import imgAppStore from "../images/download_app.png";
 import imgGoogleStore from "../images/download_google.png";
 
-import { emailCheck, passwordCheck } from "../shared/common";
+import { emailCheck, passwordCheck } from "../shared/Common";
 import {actionCreators as userActions} from "../redux/modules/user";
 import { useDispatch } from "react-redux";
 
