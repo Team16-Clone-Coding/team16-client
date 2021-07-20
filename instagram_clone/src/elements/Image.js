@@ -54,15 +54,17 @@ const ImageDefault = styled.div`
 
 const AspectOutter = styled.div`
   width: 100%;
-  min-width: 250px;
+  min-width: 550px;
 `;
 
 const AspectInner = styled.div`
   position: relative;
-  padding-top: 75%;
+  padding-top: 100%;
   overflow: hidden;
   background-image: url("${(props) => props.src}");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const ImageCircle = styled.div`

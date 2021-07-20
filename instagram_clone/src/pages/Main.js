@@ -16,9 +16,9 @@ const Main = (props) => {
   const paging = useSelector((state) => state.post.paging);
   const is_loading = useSelector((state) => state.post.is_loading);
 
-
   const [modal, setModal] = React.useState(false);
- 
+  
+
 	const modal_Open = () => {
         setModal(true);
     };
@@ -30,11 +30,12 @@ const Main = (props) => {
   React.useEffect(() => {
     if (post_list.length < 2) {
       dispatch(postActions.getPostDB());
+
     }
 
   },[]);
-  
-  console.log(post_list);
+
+  const reversedList = [...post_list].reverse();
 
 
   return(
@@ -49,7 +50,7 @@ const Main = (props) => {
           is_next = {paging.next ? true : false}
           loading = {is_loading}
         >
-          {post_list.map((_, idx) =>{
+          {reversedList.map((_, idx) =>{
             return(<Post key={idx} {..._}></Post>)
           })}
         </InfinityScroll>

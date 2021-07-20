@@ -54,7 +54,7 @@ const addPostDB = (postImage, postContent) => {
 
       console.log(res);
 
-      dispatch(addPost(res.data))
+      dispatch(getPostDB());
       
     }).catch((err) => {
       console.log(err);
@@ -64,11 +64,12 @@ const addPostDB = (postImage, postContent) => {
 
 const addCommentDB = (commentContent, postId) => {
   return function (dispatch, getState, { history }) {
-    instance.post(`/posts/${postId}/comment`, {commentContent}).then((res) => {
+    instance.post(`/posts/${postId}/comment`, commentContent).then((res) => {
 
     console.log(res);
 
     dispatch(addComment(commentContent));
+    
   }).catch((err) => {
     console.log(err);
   });
