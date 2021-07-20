@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { history } from "../redux/configureStore";
 import {Grid , Button} from "../elements";
@@ -32,9 +32,10 @@ const Main = (props) => {
       dispatch(postActions.getPostDB());
     }
 
-  },[])
+  },[]);
   
-  console.log(post_list, paging);
+  console.log(post_list);
+
 
   return(
     <React.Fragment>

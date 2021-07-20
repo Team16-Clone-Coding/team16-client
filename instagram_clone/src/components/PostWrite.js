@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
+import { actionCreators as imageActions } from "../redux/modules/image";
 import { Grid , Button, Input, Image } from "../elements";
 import styled from "styled-components";
 import PostHeader from "./PostHeader";
+import { history } from "../redux/configureStore";
 
 const PostWirte = (props) => {
 
@@ -13,15 +15,41 @@ const PostWirte = (props) => {
 
   const [contents, setContents] = React.useState("");
 
+  const imageInput = React.useRef();
+
+  const [preview, setPreview] = React.useState(null);
+  const [done, setDone] = React.useState(false);
+
+  const is_uploading = useSelector((state) => state.post.uploading);
+  
+  const uploadFile = (e) => {
+    const reader = new FileReader();
+    const selectedFile = imageInput.current.files[0];
+
+    reader.readAsDataURL(selectedFile);
+
+    reader.onloadend = () => {
+      setPreview(reader.result);
+      console.log(preview);
+    };
+  };
+
+  const uploadFB = () => {
+    let image = imageInput.current.files[0];
+    if(!image) {
+      return;
+    }
+
+    dispatch(imageActions.imageUploadFB(image, contents));
+    setTimeout(() => setDone(true), 500);
+    setTimeout(() => setDone(false), 3000);
+    close();
+  }
   const changeContents = (e) => {
     setContents(e.target.value);
   };
 
-  const purl = "https://i.pinimg.com/474x/a8/e7/60/a8e760bcdf6af796ebf9745ae28b7eae.jpg";
-
-  const addPost = () => {
-    dispatch(postActions.addPostDB(purl, contents));
-  }
+  
   
   return (
     <React.Fragment>
@@ -30,10 +58,12 @@ const PostWirte = (props) => {
         <ModalBox>
           <WriteCard>
             <PostHeader></PostHeader>
-            <Image shape="rectangle"></Image>
+            
+            <Image shape="rectangle" src={preview}></Image>
+            <input type="file" ref={imageInput} onChange={uploadFile} disabled={is_uploading}></input>
             <Input value={contents} _onChange={changeContents} label="게시글 내용" placeholder="게시글 작성" multiLine></Input>
           </WriteCard>
-          <Button _onClick={addPost}></Button>
+          <Button _onClick={uploadFB}>업로드</Button>
         </ModalBox>
         
       ) : null

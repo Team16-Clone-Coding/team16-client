@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Text, Image } from "../elements";
 
 const PostHeader = (props) => {
+  
   return(
     <React.Fragment>
       <Grid padding="0 0 0 10px" is_flex>
