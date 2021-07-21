@@ -35,12 +35,14 @@ const loginFB = (userEmail, userPassword) => {
     ).then(function (response) {
       console.log(response);
 
+      const user_Info = response.data.user;
+
       const USER_TOKEN = response.data.jwtToken;
 
       let date = new Date(Date.now() + 86400e3);
       date = date.toUTCString();
 
-      dispatch(setUser({is_login: true,}));
+      dispatch(setUser({is_login: true, user_Info}));
 
       document.cookie = "USER_TOKEN" + "=" + USER_TOKEN + "; " + "expires=" + date;
 

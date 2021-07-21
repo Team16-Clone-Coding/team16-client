@@ -18,6 +18,9 @@ const PostComments = (props) => {
   }
   
   const createComment = () => {
+    if (!content) {
+      return;
+    }
     dispatch(postActions.addCommentDB(content, postId));
   }
 

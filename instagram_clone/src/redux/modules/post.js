@@ -1,6 +1,6 @@
 import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
-import instance from "../../shared/instance";
+import instance, { getCookie } from "../../shared/instance";
 import { indexOf, slice } from "lodash";
 
 const SET_POST = "SET_POST";
@@ -13,6 +13,7 @@ const setPost = createAction(SET_POST, (post_list, paging) => ({ post_list, pagi
 const addPost = createAction(ADD_POST, (post) => ({post}));
 const loading = createAction(LOADING, (is_loading) => ({ is_loading }));
 const addComment = createAction(ADD_COMMENT, (comment) => ({ comment }));
+
 
 const initialState = {
   list: [],
@@ -52,8 +53,6 @@ const addPostDB = (postImage, postContent) => {
 
     instance.post("/posts", {postImage, postContent}).then((res) => {
 
-      console.log(res);
-
       dispatch(getPostDB());
       
     }).catch((err) => {
@@ -64,16 +63,28 @@ const addPostDB = (postImage, postContent) => {
 
 const addCommentDB = (commentContent, postId) => {
   return function (dispatch, getState, { history }) {
-    instance.post(`/posts/${postId}/comment`, commentContent).then((res) => {
+    instance.post(`/posts/${postId}/comment`, {commentContent}).then((res) => {
 
     console.log(res);
 
     dispatch(addComment(commentContent));
+    dispatch(getPostDB());
     
   }).catch((err) => {
     console.log(err);
   });
 }
+}
+
+const likeDB = (id) => {
+  return function (dispatch, getState, { history }) {
+    instance.post(`/posts/${id}/like`).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    })
+    
+  }
 }
 
 
@@ -106,6 +117,7 @@ const actionCreators = {
   getPostDB,
   addPostDB,
   addCommentDB,
+  likeDB,
 }
 
 export { actionCreators };

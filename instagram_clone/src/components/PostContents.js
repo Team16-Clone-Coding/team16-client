@@ -3,7 +3,6 @@ import { Grid, Text, Image } from "../elements";
 
 const PostContents = (props) => {
 
-  console.log(props)
   const comment_list = props.comment;
 
   

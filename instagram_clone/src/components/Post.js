@@ -19,7 +19,7 @@ const Post = (props) => {
 
           <Image shape="rectangle" src={props.postImage}></Image>
 
-          <PostButton likes={props.likes}></PostButton>
+          <PostButton likes={props.likes} postId={props.postId}></PostButton>
 
           <PostContents writer={props.user.userName} contents={props.postContent} comment={props.commentList} time={props.createdAt}></PostContents>
 
