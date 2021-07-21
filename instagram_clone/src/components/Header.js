@@ -5,7 +5,12 @@ import { actionCreators as userActions } from "../redux/modules/user";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid, Image, Button } from "../elements"
 import styled from "styled-components";
+
 import imghome from "../images/ico_home.png";
+import imgairplane from "../images/ico_airplane.png";
+import imgcompass from "../images/ico_compass.png";
+import imgheart from "../images/ico_heart.png";
+import { Link } from "react-router-dom";
 
 
 const Header = (props) => {
@@ -18,14 +23,27 @@ const Header = (props) => {
   if(is_login){
     return(
       <React.Fragment>
-        <FixedHeader>
+        <FixedHeader className="header">
           <Grid is_flex height="50px" width="100%" max="550px" margin="0 auto" padding="10px">
             <Logo></Logo>
-            <Button _onClick={() => {props.history.push('/');}}
-                  ><img src={imghome} alt="목록 이동"/></Button>
-            <Button width="20%">게시글 작성</Button>
-            <Button width="20%">마이페이지</Button>
-            <Button text="로그아웃" _onClick={logOutBtn}></Button>
+            <Gnb>
+              <GnbLink 
+                _onClick={() => {props.history.push('/');}}
+                width="inherit"
+              ><Img src={imghome} alt="목록 이동"/></GnbLink>
+              <GnbLink href="#"><Img src={imgairplane} alt="목록 이동"/></GnbLink>
+              <GnbLink href="#"><Img src={imgcompass} alt=""/></GnbLink>
+              <GnbLink href="#"><Img src={imgheart} alt=""/></GnbLink>
+              <GnbLink href="#">
+                <Image shape="circle" src={props.src} size="28" alt="" className="profile-header"/>
+              </GnbLink>
+              <Button 
+                width="inherit"
+                color="#333"
+                bg="#fff"
+                _onClick={logOutBtn}
+              >로그아웃</Button>
+            </Gnb>
           </Grid>
         </FixedHeader>
       </React.Fragment>
@@ -40,7 +58,7 @@ const Logo = styled.div`
   background-image: url("https://cdn.discordapp.com/attachments/865553698898051122/865751365622824980/instagram_logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   width: 102px;
   height: 27px;
 `;
@@ -56,4 +74,17 @@ const FixedHeader = styled.div`
   left: 0;
   z-index: 10;
 `;
+const Gnb = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const GnbLink = styled.a`
+  display: inline-block;
+  padding: 0 10px;
+`;
+const Img = styled.img`
+  width: 22px;
+`;
+
 export default Header;

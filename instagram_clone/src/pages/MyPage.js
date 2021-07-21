@@ -5,10 +5,14 @@ import { Grid, Image, Button } from "../elements"
 
 
 const MyPage = (props) => {
+  const add = (e) => {
+    document.body.classList.add('change-header-container');
+  }
+  add()
   return(
     <React.Fragment>
       {/* == 프로필 */}
-      <Grid width="975px" padding="0 20px" margin="0 auto">
+      <Grid width="975px" padding="80px 20px" margin="0 auto">
         <Col>
           <ColLeft>
             <Image shape="circle" src={props.src} size="150" margin="0 auto" alt=""/>
@@ -25,7 +29,7 @@ const MyPage = (props) => {
         {/* == 게시물 (사진이미지) */}
         <Grid>
           <Grid display="flex" alignitems="center" justifycontent="center">
-            <PostLink ClassName="active">게시물</PostLink>
+            <PostLink className="active">게시물</PostLink>
             <PostLink>IGTV</PostLink>
             <PostLink>저장됨</PostLink>
             <PostLink>태그됨</PostLink>
@@ -33,19 +37,31 @@ const MyPage = (props) => {
           <PostImage>
             <PostRow>
               <PostItem>
-                <Button onClick={() => {props.history.push('/signup');}}>
+                <Link href="#">
                   <Image shape="rectangle" src={props.src} alt=""/>
-                </Button>
+                  <PostInfo>
+                    <span>♥</span>
+                    <span>좋아요 개수</span>
+                  </PostInfo>
+                </Link>
               </PostItem>
               <PostItem>
-                <Button onClick={() => {props.history.push('/signup');}}>
+                <Link href="#">
                   <Image shape="rectangle" src={props.src} alt=""/>
-                </Button>
+                  <PostInfo>
+                    <span>♥</span>
+                    <span>좋아요 개수</span>
+                  </PostInfo>
+                </Link>
               </PostItem>
               <PostItem>
-                <Button onClick={() => {props.history.push('/signup');}}>
+                <Link href="#">
                   <Image shape="rectangle" src={props.src} alt=""/>
-                </Button>
+                  <PostInfo>
+                    <span>♥</span>
+                    <span>좋아요 개수</span>
+                  </PostInfo>
+                </Link>
               </PostItem>
             </PostRow>
           </PostImage>
@@ -54,7 +70,6 @@ const MyPage = (props) => {
     </React.Fragment>
   );
 }
-
 const Col = styled.div`
   display: flex;
   align-items: center;
@@ -100,6 +115,8 @@ const PostRow = styled.div`
   flex-shrink: 0;
 `;
 const PostItem = styled.div`
+width: 100%;
+height: 100%;
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 0%;
   -ms-flex: 1 0 0%;
@@ -110,14 +127,61 @@ const PostItem = styled.div`
     margin-right: 0;
   }
 `;
+const Link = styled.a`
+  position: relative;
+  display:block;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  font-size: 40px;
+  text-decoration: none;
+
+  span {
+    display: none;
+  }
+
+  &:hover {
+    display: block;
+
+    &:before {
+      content:'';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.25);
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      &:first-child {
+        font-size: 28px;
+      }
+      &:last-child {
+        font-size: 16px;
+        margin-top: 3px;
+        margin-left: 5px;
+      }
+    }
+  }
+`;
 const PostLink = styled.div`
   font-size: 12px;
   padding: 20px 30px;
 
   &.active {
-    color: red;
     font-weight: 600;
   }
+`;
+
+const PostInfo = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export default MyPage;
