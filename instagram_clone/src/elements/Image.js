@@ -12,11 +12,12 @@ import React from "react";
  * @returns 
  */
 const Image = (props) => {
-  const { shape, src, size } = props;
+  const { shape, src, size, margin } = props;
 
   const styles = {
     src: src,
     size: size,
+    margin: margin,
   };
 
   if (shape === "circle") {
@@ -42,6 +43,7 @@ Image.defaultProps = {
   shape: "circle",
   src: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
   size: 36,
+  margin: false,
 };
 
 const ImageDefault = styled.div`
@@ -88,7 +90,7 @@ const ImageCircle = styled.div`
 
   background-image: url("${(props) => props.src}");
   background-size: cover;
-  margin: 4px;
+  margin: ${(props) => props.margin};
 `;
 
 export default Image;
