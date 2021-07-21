@@ -42,7 +42,12 @@ const loginFB = (userEmail, userPassword) => {
       let date = new Date(Date.now() + 86400e3);
       date = date.toUTCString();
 
-      dispatch(setUser({is_login: true, user_Info}));
+      dispatch(setUser({is_login: true,}));
+
+      localStorage.setItem('userId', user_Info.userId);
+      localStorage.setItem('userName', user_Info.userName);
+      localStorage.setItem('userImage', user_Info.userImage);
+      
 
       document.cookie = "USER_TOKEN" + "=" + USER_TOKEN + "; " + "expires=" + date;
 
@@ -113,8 +118,9 @@ const logOutFB = () => {
   return function (dispatch, getState, {history}) {
     dispatch(logOut());
     document.cookie = "USER_TOKEN" + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
-    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userId");
     localStorage.removeItem("userName");
+    localStorage.removeItem("userImage");
     history.push("/login");
   }
 }

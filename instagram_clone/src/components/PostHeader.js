@@ -3,6 +3,8 @@ import { Grid, Text, Image } from "../elements";
 
 const PostHeader = (props) => {
   
+  const userName = localStorage.getItem("userName");
+  
   return(
     <React.Fragment>
       <Grid padding="0 0 0 10px" is_flex>
@@ -10,7 +12,7 @@ const PostHeader = (props) => {
           <Image size="32"></Image>
         </Grid>
         <Grid is_flex>
-          <Text bold>{props.name}</Text>
+          <Text bold>{props.name ? props.name : userName}</Text>
         </Grid>
       </Grid>
     </React.Fragment>

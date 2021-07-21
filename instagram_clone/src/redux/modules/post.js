@@ -37,8 +37,6 @@ const getPostDB = () => {
       console.log(res);
       let postList = res.data; 
      
-      console.log(postList);
-
       dispatch(setPost(postList));
 
     }).catch((err) => {
@@ -80,6 +78,7 @@ const likeDB = (id) => {
   return function (dispatch, getState, { history }) {
     instance.post(`/posts/${id}/like`).then((res) => {
       console.log(res);
+      dispatch(getPostDB());
     }).catch((err) => {
       console.log(err);
     })
