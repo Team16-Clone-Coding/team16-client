@@ -6,6 +6,7 @@ import { Grid , Button, Input, Image } from "../elements";
 import styled from "styled-components";
 import PostHeader from "./PostHeader";
 import { history } from "../redux/configureStore";
+import { actionCreators } from "../redux/modules/user";
 
 const PostWirte = (props) => {
 
@@ -30,7 +31,6 @@ const PostWirte = (props) => {
 
     reader.onloadend = () => {
       setPreview(reader.result);
-      console.log(preview);
     };
   };
 
@@ -45,6 +45,7 @@ const PostWirte = (props) => {
     setTimeout(() => setDone(false), 3000);
     close();
   }
+
   const changeContents = (e) => {
     setContents(e.target.value);
   };
@@ -59,7 +60,7 @@ const PostWirte = (props) => {
           <WriteCard>
             <PostHeader></PostHeader>
             
-            <Image shape="rectangle" src={preview}></Image>
+            <Image shape="rectangle" src={preview ? preview : "https://шпаковскаярб.рф/images/no_photo.png"}></Image>
             <input type="file" ref={imageInput} onChange={uploadFile} disabled={is_uploading}></input>
             <Input value={contents} _onChange={changeContents} label="게시글 내용" placeholder="게시글 작성" multiLine></Input>
           </WriteCard>
@@ -80,7 +81,7 @@ const ModalBox = styled.div`
   max-width: 550px;
   margin: 0 auto;
   position: fixed;
-  top: 10%;
+  top: 5%;
   z-index: 100;
 `;
 
