@@ -10,7 +10,7 @@ import imghome from "../images/ico_home.png";
 import imgairplane from "../images/ico_airplane.png";
 import imgcompass from "../images/ico_compass.png";
 import imgheart from "../images/ico_heart.png";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 
 const Header = (props) => {
@@ -27,20 +27,24 @@ const Header = (props) => {
           <Grid is_flex height="50px" width="100%" max="550px" margin="0 auto" padding="10px">
             <Logo></Logo>
             <Gnb>
-              <GnbLink 
+              <Button 
                 _onClick={() => {props.history.push('/');}}
                 width="inherit"
-              ><Img src={imghome} alt="목록 이동"/></GnbLink>
-              <GnbLink href="#"><Img src={imgairplane} alt="목록 이동"/></GnbLink>
-              <GnbLink href="#"><Img src={imgcompass} alt=""/></GnbLink>
-              <GnbLink href="#"><Img src={imgheart} alt=""/></GnbLink>
-              <GnbLink href="#">
+                bg="#fff"
+                padding="0 10px"
+              ><Img src={imghome} alt="목록 이동"/></Button>
+              <Button bg="#fff" padding="0 10px" _onClick={() => {props.history.push('/');}}><Img src={imgairplane} alt="목록 이동"/></Button>
+              <Button bg="#fff" padding="0 10px" _onClick={() => {props.history.push('/');}}><Img src={imgcompass} alt=""/></Button>
+              <Button bg="#fff" padding="0 10px" _onClick={() => {props.history.push('/');}}><Img src={imgheart} alt=""/></Button>
+              <Button bg="#fff" padding="0 10px" _onClick={() => {props.history.push('/mypage');}} bg="#fff" padding="0">
                 <Image shape="circle" src={props.src} size="28" alt="" className="profile-header"/>
-              </GnbLink>
+              </Button>
               <Button 
                 width="inherit"
                 color="#333"
                 bg="#fff"
+                whitespace="nowrap"
+                padding="0 10px"
                 _onClick={logOutBtn}
               >로그아웃</Button>
             </Gnb>
