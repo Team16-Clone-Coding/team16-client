@@ -30,7 +30,6 @@ const Main = (props) => {
   React.useEffect(() => {
     if (post_list.length < 2) {
       dispatch(postActions.getPostDB());
-
     }
 
   },[]);

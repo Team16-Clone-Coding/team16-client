@@ -4,19 +4,33 @@ import styled from "styled-components";
 import { Grid, Image, Button } from "../elements"
 import { actionCreators as postActions } from "../redux/modules/post";
 import { useDispatch, useSelector } from "react-redux";
+import ModeCommentIcon from '@material-ui/icons/ModeComment';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 const MyPage = (props) => {
 
   const dispatch = useDispatch();
+
+  const my_Image = useSelector((state) => state.post.my_info.user?.userImage);
+  const my_Email = useSelector((state) => state.post.my_info.user?.userEmail);
+  const my_Name = useSelector((state) => state.post.my_info.user?.userName);
+
+  const my_Post = useSelector((state) => state.post.my_info.postList?.length);
+  const my_Post_List = useSelector((state) => state.post.my_info?.postList);
+  console.log(my_Post_List)
+
+  React.useEffect(() => {
+    dispatch(postActions.getInfoDB());
+  },[]);
+  
+  const reversedList = [...my_Post_List].reverse();
 
   const add = (e) => {
     document.body.classList.add('change-header-container');
   }
   add()
 
-  React.useEffect(() => {
-    dispatch(postActions.getInfoDB());
-  },[])
 
   return(
     <React.Fragment>
@@ -24,12 +38,15 @@ const MyPage = (props) => {
       <Grid width="975px" padding="80px 20px" margin="0 auto">
         <Col>
           <ColLeft>
-            <Image shape="circle" src={props.src} size="150" margin="0 auto" alt=""/>
+            <Image src={my_Image} shape="circle" size="150" margin="0 auto" alt=""/>
           </ColLeft>
           <ColRight>
-            <TxtName>유저이메일</TxtName>
-            <TztPosting>게시물 <strong>(게시물 수)</strong></TztPosting>
-            <TztPosting><strong>유저네임</strong></TztPosting>
+            <Grid display="flex"  height="40px">
+              <TxtName>{my_Email}</TxtName>
+              <Button _onClick={()=>{history.push('/edit')}} borderradius="5px" padding="5px 9px" width="100px" border="1px solid #dbdbdb" margin="0 0 0 20px" fontweight="600" bg="#fafafa" color="#262626">프로필 편집</Button>
+            </Grid>
+            <TztPosting>게시물 <strong>{my_Post}</strong></TztPosting>
+            <TztPosting><strong>{my_Name}</strong></TztPosting>
           </ColRight>
         </Col>
 
@@ -45,33 +62,23 @@ const MyPage = (props) => {
           </Grid>
           <PostImage>
             <PostRow>
-              <PostItem>
-                <Link href="#">
-                  <Image shape="rectangle" src={props.src} alt=""/>
-                  <PostInfo>
-                    <span>♥</span>
-                    <span>좋아요 개수</span>
-                  </PostInfo>
-                </Link>
+              {reversedList?.map((a, idx) => {
+                return (
+                  <PostItem key={idx}>
+                    <Link href="#">
+                      <Image shape="rectangle" src={a.postImage} alt=""/>
+                      <PostInfo>
+                        <span><FavoriteIcon fontSize="small"></FavoriteIcon></span>
+                        <span>{a.likes.howManyLike}</span>
+                        <span><ModeCommentIcon fontSize="small"></ModeCommentIcon></span>
+                        <span>{a.commentList.length}</span>
+                      </PostInfo>
+                    </Link>
               </PostItem>
-              <PostItem>
-                <Link href="#">
-                  <Image shape="rectangle" src={props.src} alt=""/>
-                  <PostInfo>
-                    <span>♥</span>
-                    <span>좋아요 개수</span>
-                  </PostInfo>
-                </Link>
-              </PostItem>
-              <PostItem>
-                <Link href="#">
-                  <Image shape="rectangle" src={props.src} alt=""/>
-                  <PostInfo>
-                    <span>♥</span>
-                    <span>좋아요 개수</span>
-                  </PostInfo>
-                </Link>
-              </PostItem>
+                );
+              })}
+                  
+               
             </PostRow>
           </PostImage>
         </Grid>
@@ -165,13 +172,15 @@ const Link = styled.a`
     span {
       display: inline-block;
       vertical-align: middle;
-      &:first-child {
-        font-size: 28px;
+      
+      &:nth-child(3) {
+        margin-left: 30px;
       }
-      &:last-child {
+
+      &:nth-child(even) {
         font-size: 16px;
-        margin-top: 3px;
-        margin-left: 5px;
+        margin-left: 10px;
+        margin-top: 13px;
       }
     }
   }
@@ -188,7 +197,7 @@ const PostLink = styled.div`
 const PostInfo = styled.div`
   position: absolute;
   z-index: 2;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;

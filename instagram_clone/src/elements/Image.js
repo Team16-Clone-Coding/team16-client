@@ -32,6 +32,14 @@ const Image = (props) => {
     );
   }
 
+  if (shape === "post") {
+    return (
+      <PostAspectOutter>
+        <PostAspectInner {...styles}></PostAspectInner>
+      </PostAspectOutter>
+    );
+  }
+
   return (
     <React.Fragment>
       <ImageDefault {...styles}></ImageDefault>
@@ -67,20 +75,20 @@ const AspectInner = styled.div`
   background-size: cover;
 `;
 
-// const AspectOutter = styled.div`
-//   width: 100%;
-//   min-width: 550px;
-// `;
+const PostAspectOutter = styled.div`
+  width: 100%;
+  min-width: 550px;
+`;
 
-// const AspectInner = styled.div`
-//   position: relative;
-//   padding-top: 100%;
-//   overflow: hidden;
-//   background-image: url("${(props) => props.src}");
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-position: center;
-// `;
+const PostAspectInner = styled.div`
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+  background-image: url("${(props) => props.src}");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
 
 const ImageCircle = styled.div`
   --size: ${(props) => props.size}px;

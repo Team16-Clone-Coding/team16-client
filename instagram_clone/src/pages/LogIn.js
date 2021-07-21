@@ -6,13 +6,22 @@ import imgLogo from "../images/instagram_logo.png";
 import imgLogin from "../images/instagram_login.png";
 import imgAppStore from "../images/download_app.png";
 import imgGoogleStore from "../images/download_google.png";
-
+import { history } from "../redux/configureStore";
 import {actionCreators as userActions} from "../redux/modules/user";
 import { useDispatch } from "react-redux";
 
 
 const LogIn = (props) => {
+  const is_Token = document.cookie.match("USER_TOKEN") ? true : false;
+  
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    if (is_Token) {
+      history.push('/main');
+    }
+    
+  }, []);
 
   const [userEmail, setEmail] = React.useState("");
   const [userPassword, setPwd] = React.useState("");

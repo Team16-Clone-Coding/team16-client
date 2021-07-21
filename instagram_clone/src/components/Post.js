@@ -17,7 +17,7 @@ const Post = (props) => {
         <PostCard>
           <PostHeader name={props.user.userName}></PostHeader>
 
-          <Image shape="rectangle" src={props.postImage}></Image>
+          <Image shape="post" src={props.postImage}></Image>
 
           <PostButton isComment={props.likes.userList} likes={props.likes} postId={props.postId}></PostButton>
 

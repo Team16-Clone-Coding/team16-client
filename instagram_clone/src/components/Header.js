@@ -18,29 +18,28 @@ const Header = (props) => {
   const is_login = useSelector((state) => state.user.is_login);
   const logOutBtn = () => { dispatch(userActions.logOutFB()); };
 
-  console.log(is_login);
-
   if(is_login){
     return(
       <React.Fragment>
         <FixedHeader className="header">
           <Grid is_flex height="50px" width="100%" max="550px" margin="0 auto" padding="10px">
-            <Logo></Logo>
+            <Logo onClick={()=>{history.push('/main');}}></Logo>
             <Gnb>
               <Button 
-                _onClick={() => {props.history.push('/');}}
+                _onClick={() => {history.push('/main');}}
                 width="inherit"
                 bg="#fff"
                 padding="0 10px"
               ><Img src={imghome} alt="목록 이동"/></Button>
-              <Button bg="#fff" padding="0 10px" _onClick={() => {props.history.push('/');}}><Img src={imgairplane} alt="목록 이동"/></Button>
-              <Button bg="#fff" padding="0 10px" _onClick={() => {props.history.push('/');}}><Img src={imgcompass} alt=""/></Button>
-              <Button bg="#fff" padding="0 10px" _onClick={() => {props.history.push('/');}}><Img src={imgheart} alt=""/></Button>
-              <Button bg="#fff" padding="0 10px" _onClick={() => {props.history.push('/mypage');}} bg="#fff" padding="0">
+              <Button bg="#fff" padding="0 10px" _onClick={() => {history.push('/main');}}><Img src={imgairplane} alt="목록 이동"/></Button>
+              <Button bg="#fff" padding="0 10px" _onClick={() => {history.push('/main');}}><Img src={imgcompass} alt=""/></Button>
+              <Button bg="#fff" padding="0 10px" _onClick={() => {history.push('/main');}}><Img src={imgheart} alt=""/></Button>
+              <Button bg="#fff" padding="0 10px" _onClick={() => {history.push('/mypage');}} bg="#fff" padding="0">
                 <Image shape="circle" src={props.src} size="28" alt="" className="profile-header"/>
               </Button>
               <Button 
                 width="inherit"
+                
                 color="#333"
                 bg="#fff"
                 whitespace="nowrap"
@@ -63,8 +62,9 @@ const Logo = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 102px;
-  height: 27px;
+  width: 103px;
+  height: 29px;
+  cursor: pointer;
 `;
 
 const FixedHeader = styled.div`

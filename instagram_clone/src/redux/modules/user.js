@@ -53,7 +53,7 @@ const loginFB = (userEmail, userPassword) => {
 
       axios.defaults.headers.common["Authorization"] = USER_TOKEN;
 
-      history.push('/');
+      history.push('/main');
     }).catch((error) => {
       console.log(error);
     });
@@ -85,7 +85,7 @@ const signupFB = (userEmail, userName, userPassword) => {
       // }
 
       window.alert("환영해요!")
-      history.push("/login");
+      history.push("/");
     })
     .catch(function (error) {
       console.log(error);
@@ -121,7 +121,7 @@ const logOutFB = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("userName");
     localStorage.removeItem("userImage");
-    history.push("/login");
+    history.push("/");
   }
 }
 

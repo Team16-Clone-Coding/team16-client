@@ -9,6 +9,7 @@ import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
 import Main from "../pages/Main";
 import MyPage from "../pages/MyPage";
+import EditInfo from "../pages/EditInfo";
 
 function App() {
 
@@ -29,10 +30,11 @@ function App() {
     <React.Fragment>
       <Header></Header>
       <ConnectedRouter history={history}>
-        <Route path='/' exact component={Main}/>
+        <Route path='/' exact component={LogIn}/>
         <Route path='/mypage' exact component={MyPage}/>
-        <Route path='/login' exact component={LogIn}/>
+        <Route path='/main' exact component={Main}/>
         <Route path='/signup' exact component={SignUp}/>
+        <Route path='/edit' exact component={EditInfo}></Route>
       </ConnectedRouter>
     </React.Fragment>
   );

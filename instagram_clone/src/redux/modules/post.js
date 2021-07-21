@@ -21,6 +21,7 @@ const initialState = {
   paging: { start: null, next: null, size: 3 },
   is_loading: false,
   comment: "",
+  my_info: [],
 }
 
 const initialPost = {
@@ -89,8 +90,14 @@ const likeDB = (id) => {
 
 const getInfoDB = () => {
   return function (dispatch, getState, { history }) {
-    instance.get("/mypage").then((res) => {
-      console.log(res);
+    instance.get("/user/myinfo").then((res) => {
+      dispatch(setInfo(res.data));
+
+      // console.log(res.data);
+      // const myInfo = res.data
+      // localStorage.setItem('userId', user_Info.userId);
+      // localStorage.setItem('userName', user_Info.userName);
+      // localStorage.setItem('userImage', user_Info.userImage);
     }).catch((err) => {
       console.log(err);
     })
@@ -110,13 +117,15 @@ export default handleActions(
     }),
 
     [ADD_POST]: (state, action) => produce(state, (draft) => {
-      produce(state, (draft) => {
         draft.list.unshift(action.payload.post);
-      })
     }),
 
     [ADD_COMMENT]: (state, action) => produce(state, (draft) => {
       draft.comment = action.payload.comment;
+    }),
+
+    [SET_INFO]: (state, action) => produce(state, (draft) => {
+      draft.my_info = action.payload.my_info;
     })
     
   }, initialState

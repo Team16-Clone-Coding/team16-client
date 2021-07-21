@@ -108,7 +108,7 @@ const SignUp = (props) => {
           <Grid center padding="21px" margin="10px 0 0 0" border="1px solid #dbdbdb" bg="#ffffff">
             <SignupLink>
               계정이 있으신가요? 
-              <Link onClick={() => {props.history.push('/login');}}
+              <Link onClick={() => {props.history.push('/');}}
               > 로그인</Link>
             </SignupLink>
           </Grid>

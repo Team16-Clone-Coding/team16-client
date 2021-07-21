@@ -61,10 +61,9 @@ const PostWirte = (props) => {
             <PostHeader></PostHeader>
             
             <Image shape="rectangle" src={preview ? preview : "https://шпаковскаярб.рф/images/no_photo.png"}></Image>
-            <div class="filebox">
 
-            <input type="file" id="ex_file" ref={imageInput} onChange={uploadFile} disabled={is_uploading}></input>
-            </div>
+            <input type="file" ref={imageInput} onChange={uploadFile} disabled={is_uploading}></input>
+            
             <Input value={contents} _onChange={changeContents}placeholder="게시글 작성" multiLine></Input>
             <Button _onClick={uploadFB} bg="#444">업로드</Button>
           </WriteCard>
