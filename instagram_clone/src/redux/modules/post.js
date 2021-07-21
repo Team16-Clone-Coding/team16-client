@@ -7,13 +7,14 @@ const SET_POST = "SET_POST";
 const ADD_POST = "ADD_POST";
 const LOADING = "LOADING";
 const ADD_COMMENT = "ADD_COMMENT";
+const SET_INFO = "SET_INFO";
 
 
 const setPost = createAction(SET_POST, (post_list, paging) => ({ post_list, paging }));
 const addPost = createAction(ADD_POST, (post) => ({post}));
 const loading = createAction(LOADING, (is_loading) => ({ is_loading }));
 const addComment = createAction(ADD_COMMENT, (comment) => ({ comment }));
-
+const setInfo = createAction(SET_INFO, ( my_info ) => ({ my_info }));
 
 const initialState = {
   list: [],
@@ -86,6 +87,16 @@ const likeDB = (id) => {
   }
 }
 
+const getInfoDB = () => {
+  return function (dispatch, getState, { history }) {
+    instance.get("/mypage").then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+}
+
 
 export default handleActions(
   {
@@ -117,6 +128,7 @@ const actionCreators = {
   addPostDB,
   addCommentDB,
   likeDB,
+  getInfoDB,
 }
 
 export { actionCreators };

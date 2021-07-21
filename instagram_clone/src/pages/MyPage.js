@@ -2,13 +2,22 @@ import React from "react";
 import { history } from "../redux/configureStore";
 import styled from "styled-components";
 import { Grid, Image, Button } from "../elements"
-
+import { actionCreators as postActions } from "../redux/modules/post";
+import { useDispatch, useSelector } from "react-redux";
 
 const MyPage = (props) => {
+
+  const dispatch = useDispatch();
+
   const add = (e) => {
     document.body.classList.add('change-header-container');
   }
   add()
+
+  React.useEffect(() => {
+    dispatch(postActions.getInfoDB());
+  },[])
+
   return(
     <React.Fragment>
       {/* == 프로필 */}

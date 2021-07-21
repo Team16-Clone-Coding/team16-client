@@ -11,14 +11,13 @@ const PostButton = (props) => {
 
   const _comment = props.isComment;
 
+
   const plus_like = () => {
     dispatch(postActions.likeDB(props.postId));
     
   }
 
-  
   const user_Id = localStorage.getItem("userId");
-  console.log(user_Id);
 
   const itemDict = {};
 
@@ -29,7 +28,15 @@ const PostButton = (props) => {
 
   const isHeart = Object.keys(itemDict).indexOf(user_Id);
 
-  console.log(isHeart);
+  const nameDict = {};
+
+  for (let i = 0; i < _comment.length; i++) {
+    const item = _comment[i];
+    nameDict[item.userName] = item;
+  }
+
+  const isName = Object.keys(nameDict);
+
 
   return(
     <React.Fragment>
@@ -40,9 +47,11 @@ const PostButton = (props) => {
          : <FavoriteIcon color="secondary" onClick={plus_like} cursor="pointer" fontSize="medium"></FavoriteIcon>
          }
       </Grid>
-      <Grid height="40px" margin="0 0 0 10px" display="flex">
-        <Text bold>좋아요 &nbsp; </Text>
-        <Text bold>{props.likes.howManyLike}개</Text>
+      <Grid height="35px" padding="0 0 0 10px" display="flex" alignitems="center">
+        <Text size='14px' bold>{isName[0] ? isName[0] : null}</Text>
+        <Text size="14px">{isName[0] ? "님 외" : null}</Text>
+        <Text size='14px' bold>&nbsp; {props.likes.howManyLike}명</Text>
+        <Text size="14px">이 좋아합니다.</Text>
       </Grid>
       
     </React.Fragment>
