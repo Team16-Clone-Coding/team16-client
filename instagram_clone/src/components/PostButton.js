@@ -9,17 +9,36 @@ const PostButton = (props) => {
 
   const dispatch = useDispatch();
 
+  const _comment = props.isComment;
+
   const plus_like = () => {
-    console.log(props.postId);
     dispatch(postActions.likeDB(props.postId));
+    
   }
 
-  // const is_like = useSelector(s)
+  
+  const user_Id = localStorage.getItem("userId");
+  console.log(user_Id);
+
+  const itemDict = {};
+
+  for (let i = 0; i < _comment.length; i++) {
+    const item = _comment[i];
+    itemDict[item.userId] = item;
+  }
+
+  const isHeart = Object.keys(itemDict).indexOf(user_Id);
+
+  console.log(isHeart);
 
   return(
     <React.Fragment>
       <Grid height="40px" padding="10px">
-        <FavoriteBorderIcon onClick={plus_like} cursor="pointer" fontSize="medium"></FavoriteBorderIcon>
+        {
+          isHeart === -1
+         ? <FavoriteBorderIcon onClick={plus_like} cursor="pointer" fontSize="medium"></FavoriteBorderIcon>
+         : <FavoriteIcon color="secondary" onClick={plus_like} cursor="pointer" fontSize="medium"></FavoriteIcon>
+         }
       </Grid>
       <Grid height="40px" margin="0 0 0 10px" display="flex">
         <Text bold>좋아요 &nbsp; </Text>
