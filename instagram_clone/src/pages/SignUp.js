@@ -89,7 +89,7 @@ const SignUp = (props) => {
                 placeholder="비밀번호"
                 _onChange={changePwd}
               />
-              <p>최소 8 자, 최소 하나의 문자 및 하나의 숫자</p>
+              <Message>※ 최소 8 자, 최소 하나의 문자 및 하나의 숫자</Message>
             </Grid>
 
             {/* = 가입 */}
@@ -211,6 +211,14 @@ const AppImg = styled.a`
       margin-right: 10px;
     }
   }
+`;
+const Message = styled.div`
+  font-size: 12px;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
 `;
 
 export default SignUp;
