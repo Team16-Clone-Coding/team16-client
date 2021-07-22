@@ -60,7 +60,7 @@ const PostWirte = (props) => {
           <WriteCard>
             <PostHeader></PostHeader>
             <Image shape="rectangle" src={preview ? preview : "https://шпаковскаярб.рф/images/no_photo.png"}></Image>
-            <Grid padding="15px 10px">
+            <Grid padding="15px 0">
               <input type="file" ref={imageInput} onChange={uploadFile} disabled={is_uploading} style={{width: "100%"}}/>
             </Grid>
             
