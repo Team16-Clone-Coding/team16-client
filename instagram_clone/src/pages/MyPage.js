@@ -18,13 +18,13 @@ const MyPage = (props) => {
 
   const my_Post = useSelector((state) => state.post.my_info.postList?.length);
   const my_Post_List = useSelector((state) => state.post.my_info?.postList);
-  console.log(my_Post_List)
+  console.log(my_Post_List);
 
   React.useEffect(() => {
     dispatch(postActions.getInfoDB());
   },[]);
   
-  const reversedList = [...my_Post_List].reverse();
+  // const ReversedList = [...my_Post_List]?.reverse();
 
   const add = (e) => {
     document.body.classList.add('change-header-container');
@@ -62,10 +62,10 @@ const MyPage = (props) => {
           </Grid>
           <PostImage>
             <PostRow>
-              {reversedList?.map((a, idx) => {
+              {my_Post_List?.map((a, idx) => {
                 return (
                   <PostItem key={idx}>
-                    <Link href="#">
+                    <Link onClick={()=>{history.push('/main')}}>
                       <Image shape="rectangle" src={a.postImage} alt=""/>
                       <PostInfo>
                         <span><FavoriteIcon fontSize="small"></FavoriteIcon></span>
@@ -151,7 +151,7 @@ const Link = styled.a`
   color: #ffffff;
   font-size: 40px;
   text-decoration: none;
-
+  cursor: pointer;
   span {
     display: none;
   }
