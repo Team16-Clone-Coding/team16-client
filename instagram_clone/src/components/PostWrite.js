@@ -90,7 +90,7 @@ const ModalBox = styled.div`
 
 const WriteCard = styled.div`
   width: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
   // border: 1px solid rgba(var(--ce3,239,239,239),1);
   background: #fff;
   z-index: 101;

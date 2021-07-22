@@ -42,7 +42,7 @@ const profileUploadFB = (image) => {
           console.log(userImage);
           console.log(res);
           dispatch(postActions.getInfoDB());
-          history.goBack();
+          history.push('/mypage');
         }).catch((err) => {
           console.log(userImage);
           console.log(err);

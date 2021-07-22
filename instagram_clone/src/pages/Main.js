@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import { actionCreators as postActions } from "../redux/modules/post";
 import InfinityScroll from "../shared/InfinityScroll";
 import PostWirte from "../components/PostWrite";
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 
 const Main = (props) => {
 
@@ -55,7 +56,7 @@ const Main = (props) => {
             return(<Post key={idx} {..._}></Post>)
           })}
         </InfinityScroll>
-        <Button is_float _onClick={modal_Open}></Button>
+        <Button is_float _onClick={modal_Open}><CreateOutlinedIcon></CreateOutlinedIcon></Button>
       </Grid>
       
       
