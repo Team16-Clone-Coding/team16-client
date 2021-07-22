@@ -5,8 +5,6 @@ const PostContents = (props) => {
 
   const comment_list = props.comment;
 
-  
-  
   return(
     <React.Fragment>
       <Grid display="flex" alignitems="center" height="30px">

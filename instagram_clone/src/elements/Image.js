@@ -73,6 +73,8 @@ const AspectInner = styled.div`
   overflow: hidden;
   background-image: url("${(props) => props.src}");
   background-size: cover;
+  background-position: center;
+  background-color: #e3e3e3;
 `;
 
 const PostAspectOutter = styled.div`

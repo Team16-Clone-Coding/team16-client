@@ -59,13 +59,13 @@ const PostWirte = (props) => {
         <ModalBox>
           <WriteCard>
             <PostHeader></PostHeader>
-            
             <Image shape="rectangle" src={preview ? preview : "https://шпаковскаярб.рф/images/no_photo.png"}></Image>
-
-            <input type="file" ref={imageInput} onChange={uploadFile} disabled={is_uploading}></input>
+            <Grid padding="15px 10px">
+              <input type="file" ref={imageInput} onChange={uploadFile} disabled={is_uploading} style={{width: "100%"}}/>
+            </Grid>
             
-            <Input value={contents} _onChange={changeContents}placeholder="게시글 작성" multiLine></Input>
-            <Button _onClick={uploadFB} bg="#444">업로드</Button>
+            <Input value={contents} _onChange={changeContents}placeholder="게시글 작성" multiLine/>
+            <ButtonGroup><Button _onClick={uploadFB} borderradius="5px" bg="#0095f6" fontweight="bold">업로드</Button></ButtonGroup>
           </WriteCard>
           
         </ModalBox>
@@ -75,9 +75,7 @@ const PostWirte = (props) => {
     </React.Fragment>
   );
 
-  
 }
-
 
 
 const ModalBox = styled.div`
@@ -93,7 +91,7 @@ const ModalBox = styled.div`
 const WriteCard = styled.div`
   width: 100%;
   margin-top: 50px;
-  border: 1px solid rgba(var(--ce3,239,239,239),1);
+  // border: 1px solid rgba(var(--ce3,239,239,239),1);
   background: #fff;
   z-index: 101;
 `;
@@ -106,6 +104,9 @@ const ModalBg = styled.div`
   left: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 5;
+`;
+const ButtonGroup = styled.div`
+  padding: 15px;
 `;
 
 export default PostWirte;

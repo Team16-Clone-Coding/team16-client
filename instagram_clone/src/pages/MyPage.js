@@ -114,15 +114,13 @@ const HR = styled.hr`
 const PostImage = styled.div`
   box-sizing: border-box;
   display: flex;
-  // flex-direction: column;
-  // flex-shrink: 0;
   flex-wrap: wrap;
   align-items: stretch;
   padding-bottom: 0px;
   padding-top: 0px;
 `;
 const PostItem = styled.div`
-max-width: 291px;
+  max-width: 291px;
   height: 100%;
   flex: 1 0 30%;
   padding: 10px;
