@@ -45,17 +45,9 @@ const Main = (props) => {
       <Header></Header>
       <Grid height="100vh" max="550px" margin="0 auto;">
         <PostWirte open={modal} close={modal_Close}></PostWirte>
-        <InfinityScroll
-          callNext={() => {
-            dispatch(postActions.getPostDB(paging.next));
-          }}
-          is_next = {paging.next ? true : false}
-          loading = {is_loading}
-        >
           {reversedList.map((_, idx) =>{
             return(<Post key={idx} {..._}></Post>)
           })}
-        </InfinityScroll>
         <Button is_float _onClick={modal_Open}><CreateOutlinedIcon></CreateOutlinedIcon></Button>
       </Grid>
       

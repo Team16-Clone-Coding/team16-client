@@ -49,7 +49,7 @@ const Image = (props) => {
 
 Image.defaultProps = {
   shape: "circle",
-  src: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
+  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRurZzNoggB7tdWUUMNNWLXMH4pdOmMNRTu9g&usqp=CAU",
   size: 36,
   margin: false,
 };
