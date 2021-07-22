@@ -10,7 +10,7 @@ const PostHeader = (props) => {
     <React.Fragment>
       <Grid padding="0 0 0 10px" is_flex>
         <Grid is_flex width="10%">
-          <Image size="32"></Image>
+          <Image size="32" src={props.profileImage}></Image>
         </Grid>
         <Grid is_flex>
           <Text bold>{props.name ? props.name : userName}</Text>

@@ -15,6 +15,7 @@ const Main = (props) => {
   const post_list = useSelector((state) => state.post.list);
   const paging = useSelector((state) => state.post.paging);
   const is_loading = useSelector((state) => state.post.is_loading);
+  
 
   const [modal, setModal] = React.useState(false);
   
@@ -31,7 +32,8 @@ const Main = (props) => {
     if (post_list.length < 2) {
       dispatch(postActions.getPostDB());
     }
-
+ 
+    dispatch(postActions.getInfoDB());
   },[]);
 
   const reversedList = [...post_list].reverse();

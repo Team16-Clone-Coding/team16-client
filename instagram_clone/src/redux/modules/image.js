@@ -31,6 +31,29 @@ const imageUploadFB = (image, contents) => {
   };
 };
 
+const profileUploadFB = (image) => {
+  return function (dispatch, getState, { history }) {
+    const _upload = storage.ref(`images/${image.name}`).put(image);
+
+    _upload.then((snapshot) => {
+      snapshot.ref.getDownloadURL().then((userImage) => {
+        
+        instance.post("/user/image", {userImage}).then((res)=> {
+          console.log(userImage);
+          console.log(res);
+          dispatch(postActions.getInfoDB());
+          history.goBack();
+        }).catch((err) => {
+          console.log(userImage);
+          console.log(err);
+        });
+
+        
+      });
+    });
+  };
+};
+
 export default handleActions(
   {
     [IMAGE_UPLOAD]: (state, action) =>
@@ -50,6 +73,7 @@ const actionCreators = {
   imageUpload,
   uploading,
   imageUploadFB,
+  profileUploadFB,
 };
 
 export { actionCreators };
