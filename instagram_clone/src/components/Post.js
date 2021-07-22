@@ -15,7 +15,7 @@ const Post = (props) => {
     <React.Fragment>
       <Grid height="50px"></Grid>
         <PostCard>
-          <PostHeader name={props.user.userName}></PostHeader>
+          <PostHeader name={props.user.userName} profileImage={props.user.userImage}></PostHeader>
 
           <Image shape="post" src={props.postImage}></Image>
 

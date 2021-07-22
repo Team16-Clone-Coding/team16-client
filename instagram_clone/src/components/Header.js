@@ -2,6 +2,7 @@ import React from "react";
 import { history } from "../redux/configureStore";
 import {setCookie, getCookie, deleteCookie} from "../shared/Cookie";
 import { actionCreators as userActions } from "../redux/modules/user";
+import { actionCreators as postActions } from "../redux/modules/post";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid, Image, Button } from "../elements"
 import styled from "styled-components";
@@ -17,6 +18,13 @@ const Header = (props) => {
   const dispatch = useDispatch();
   const is_login = useSelector((state) => state.user.is_login);
   const logOutBtn = () => { dispatch(userActions.logOutFB()); };
+  const profile_image = useSelector((state) => state.post.my_info?.user?.userImage);
+
+  React.useEffect(()=>{
+    dispatch(postActions.getInfoDB());
+  },[]);
+  
+  console.log(profile_image);
 
   if(is_login){
     return(
@@ -34,8 +42,8 @@ const Header = (props) => {
               <Button bg="#fff" padding="0 10px" _onClick={() => {history.push('/main');}}><Img src={imgairplane} alt="목록 이동"/></Button>
               <Button bg="#fff" padding="0 10px" _onClick={() => {history.push('/main');}}><Img src={imgcompass} alt=""/></Button>
               <Button bg="#fff" padding="0 10px" _onClick={() => {history.push('/main');}}><Img src={imgheart} alt=""/></Button>
-              <Button bg="#fff" padding="0 10px" _onClick={() => {history.push('/mypage');}} bg="#fff" padding="0">
-                <Image shape="circle" src={props.src} size="28" alt="" className="profile-header"/>
+              <Button bg="#fff" padding="0" _onClick={() => {history.push('/mypage');}}>
+                <Image shape="circle" src={profile_image} size="28" alt="" className="profile-header"/>
               </Button>
               <Button 
                 width="inherit"

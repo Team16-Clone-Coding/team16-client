@@ -91,19 +91,25 @@ const likeDB = (id) => {
 const getInfoDB = () => {
   return function (dispatch, getState, { history }) {
     instance.get("/user/myinfo").then((res) => {
+
       dispatch(setInfo(res.data));
 
-      // console.log(res.data);
-      // const myInfo = res.data
-      // localStorage.setItem('userId', user_Info.userId);
-      // localStorage.setItem('userName', user_Info.userName);
-      // localStorage.setItem('userImage', user_Info.userImage);
     }).catch((err) => {
       console.log(err);
     })
   }
 }
 
+const editNameDB = (userName) => {
+  return function (dispatch, getState, { history }) {
+    instance.put("/user/edit", {userName}).then((res) => {
+      dispatch(getInfoDB());
+      history.push('/mypage');
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+}
 
 export default handleActions(
   {
@@ -138,6 +144,7 @@ const actionCreators = {
   addCommentDB,
   likeDB,
   getInfoDB,
+  editNameDB,
 }
 
 export { actionCreators };
