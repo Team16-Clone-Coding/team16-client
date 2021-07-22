@@ -61,25 +61,21 @@ const MyPage = (props) => {
             <PostLink>태그됨</PostLink>
           </Grid>
           <PostImage>
-            <PostRow>
-              {my_Post_List?.map((a, idx) => {
-                return (
-                  <PostItem key={idx}>
-                    <Link onClick={()=>{history.push('/main')}}>
-                      <Image shape="rectangle" src={a.postImage} alt=""/>
-                      <PostInfo>
-                        <span><FavoriteIcon fontSize="small"></FavoriteIcon></span>
-                        <span>{a.likes.howManyLike}</span>
-                        <span><ModeCommentIcon fontSize="small"></ModeCommentIcon></span>
-                        <span>{a.commentList.length}</span>
-                      </PostInfo>
-                    </Link>
-              </PostItem>
-                );
-              })}
-                  
-               
-            </PostRow>
+            {my_Post_List?.map((a, idx) => {
+              return (
+                <PostItem key={idx}>
+                  <Link onClick={()=>{history.push('/main')}}>
+                    <Image shape="rectangle" src={a.postImage} alt=""/>
+                    <PostInfo>
+                      <span><FavoriteIcon fontSize="small"></FavoriteIcon></span>
+                      <span>{a.likes.howManyLike}</span>
+                      <span><ModeCommentIcon fontSize="small"></ModeCommentIcon></span>
+                      <span>{a.commentList.length}</span>
+                    </PostInfo>
+                  </Link>
+                </PostItem>
+              );
+            })}
           </PostImage>
         </Grid>
       </Grid>
@@ -118,30 +114,18 @@ const HR = styled.hr`
 const PostImage = styled.div`
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
+  // flex-direction: column;
+  // flex-shrink: 0;
+  flex-wrap: wrap;
   align-items: stretch;
   padding-bottom: 0px;
   padding-top: 0px;
 `;
-const PostRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  flex-shrink: 0;
-`;
 const PostItem = styled.div`
-width: 100%;
-height: 100%;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 0%;
-  -ms-flex: 1 0 0%;
-  flex: 1 0 0%;
-  margin-right: 28px;
-
-  &:last-child {
-    margin-right: 0;
-  }
+max-width: 291px;
+  height: 100%;
+  flex: 1 0 30%;
+  padding: 10px;
 `;
 const Link = styled.a`
   position: relative;
