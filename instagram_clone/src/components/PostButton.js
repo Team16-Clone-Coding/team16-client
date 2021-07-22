@@ -47,11 +47,11 @@ const PostButton = (props) => {
          : <FavoriteIcon color="secondary" onClick={plus_like} cursor="pointer" fontSize="medium"></FavoriteIcon>
          }
       </Grid>
-      <Grid height="35px" padding="0 0 0 10px" display="flex" alignitems="center">
-        <Text size='14px' bold>{isName[0] ? isName[0] : null}</Text>
-        <Text size="14px">{isName[0] ? "님 외" : null}</Text>
-        <Text size='14px' bold>&nbsp; {props.likes.howManyLike}명</Text>
-        <Text size="14px">이 좋아합니다.</Text>
+      <Grid padding="0 0 0 10px" display="flex" alignitems="center">
+        <Text size='14px' bold margin="0">{isName[0] ? isName[0] : null}</Text>
+        <Text size="14px" margin="0">{isName[0] ? "님 외" : null}</Text>
+        <Text size='14px' bold margin="0">&nbsp; {props.likes.howManyLike}명</Text>
+        <Text size="14px" margin="0">이 좋아합니다.</Text>
       </Grid>
       
     </React.Fragment>

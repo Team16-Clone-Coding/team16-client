@@ -7,21 +7,25 @@ const PostContents = (props) => {
 
   return(
     <React.Fragment>
-      <Grid display="flex" alignitems="center" height="30px">
-        <Text bold size="14px" margin="0 10px">{props.writer}</Text>
-        <Text size="14px">{props.contents}</Text>
-      </Grid>
-      <Grid>
-        <Text margin="10px" size="12px" color="#8e8e8e">댓글 {comment_list.length}개</Text>
-        {comment_list.map((c, idx) => {
-          return(
-            <Grid key={idx} display="flex" alignitems="center" height="20px">
-                <Text bold size="14px" margin="0 10px">{c.commentAuthor}</Text>
-                <Text size="14px">{c.commentContent}</Text>
-            </Grid>
-          )
-        })}
-        <Text color="#8e8e8e" size="11px" margin="10px">{props.time}</Text>
+      <Grid margin="0 15px" className="containerAA">
+        <Grid display="flex" alignitems="center" height="30px">
+          <Text bold size="14px" margin="0 0 3px">{props.writer}</Text>
+        </Grid>
+        <Grid>
+          <Text size="14px" wordbreak="keep-all" margin="0 0 3px">{props.contents}</Text>
+        </Grid>
+        <Grid>
+          <Text margin="10px 0 3px" size="12px" color="#8e8e8e">댓글 {comment_list.length}개</Text>
+          {comment_list.map((c, idx) => {
+            return(
+              <Grid key={idx} display="flex" alignitems="center" height="20px">
+                  <Text bold size="14px" margin="0 0 3px">{c.commentAuthor}</Text>
+                  <Text size="14px" margin="0 0 3px">{c.commentContent}</Text>
+              </Grid>
+            )
+          })}
+          <Text color="#8e8e8e" size="11px" margin="3px 0 15px">{props.time}</Text>
+        </Grid>
       </Grid>
     </React.Fragment>
   );
