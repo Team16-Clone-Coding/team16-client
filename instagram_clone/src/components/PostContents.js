@@ -4,6 +4,7 @@ import { Grid, Text, Image } from "../elements";
 const PostContents = (props) => {
 
   const comment_list = props.comment;
+  
 
   return(
     <React.Fragment>
@@ -15,12 +16,12 @@ const PostContents = (props) => {
           <Text size="14px" wordbreak="keep-all" margin="0 0 3px">{props.contents}</Text>
         </Grid>
         <Grid>
-          <Text margin="10px 0 3px" size="12px" color="#8e8e8e">댓글 {comment_list.length}개</Text>
+          <Text margin="10px 0 10px" size="12px" color="#8e8e8e">댓글 {comment_list.length}개</Text>
           {comment_list.map((c, idx) => {
             return(
               <Grid key={idx} display="flex" alignitems="center" height="20px">
-                  <Text bold size="14px" margin="0 0 3px">{c.commentAuthor}</Text>
-                  <Text size="14px" margin="0 0 3px">{c.commentContent}</Text>
+                  <Text bold size="14px" margin="0 5px 3px 0">{c.commentAuthor}</Text>
+                  <Text size="14px" margin="0 0 3px 0">{c.commentContent}</Text>
               </Grid>
             )
           })}

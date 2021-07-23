@@ -30,19 +30,22 @@ const Main = (props) => {
     }
 
   React.useEffect(() => {
+    
     if (post_list.length < 2) {
       dispatch(postActions.getPostDB());
     }
  
     dispatch(postActions.getInfoDB());
+
+    
   },[]);
 
   const reversedList = [...post_list].reverse();
 
+  console.log(post_list);
 
   return(
     <React.Fragment>
-      <Header></Header>
       <Grid height="100vh" max="550px" margin="0 auto;">
         <PostWirte open={modal} close={modal_Close}></PostWirte>
           {reversedList.map((_, idx) =>{

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Post = (props) => {
 
 
+  console.log(props);
   return(
     <React.Fragment>
       <Grid height="50px"></Grid>

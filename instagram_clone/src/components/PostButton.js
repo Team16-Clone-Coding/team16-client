@@ -11,6 +11,7 @@ const PostButton = (props) => {
 
   const _comment = props.isComment;
 
+  console.log(_comment);
 
   const plus_like = () => {
     dispatch(postActions.likeDB(props.postId));
